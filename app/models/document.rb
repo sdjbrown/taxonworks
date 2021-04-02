@@ -49,12 +49,12 @@ class Document < ApplicationRecord
 
   has_many :sources, through: :documentation, source_type: 'Source', source: 'documentation_object'
 
-  has_attached_file :document_file,
-    filename_cleaner:  Utilities::CleanseFilename
+#  has_attached_file :document_file,
+#    filename_cleaner:  Utilities::CleanseFilename
 
-  validates_attachment_content_type :document_file, content_type: ['application/octet-stream', 'application/pdf', 'text/plain', 'text/xml']
-  validates_attachment_presence :document_file
-  validates_attachment_size :document_file, greater_than: 1.bytes
+ # validates_attachment_content_type :document_file, content_type: ['application/octet-stream', 'application/pdf', 'text/plain', 'text/xml']
+ # validates_attachment_presence :document_file
+ # validates_attachment_size :document_file, greater_than: 1.bytes
 
   accepts_nested_attributes_for :documentation, allow_destroy: true, reject_if: :reject_documentation
 

@@ -40,6 +40,8 @@ TaxonWorks::Application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
+  config.active_storage.service = :local
+
   # Load local settings
   Settings.load_from_settings_file(config, :development)
 

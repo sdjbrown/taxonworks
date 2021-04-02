@@ -75,19 +75,22 @@ class Image < ApplicationRecord
   before_save :extract_tw_attributes
 
   # also using https://github.com/teeparham/paperclip-meta
-  has_attached_file :image_file,
-    styles: {
-    thumb: [ "#{DEFAULT_SIZES[:thumb][:width]}x#{DEFAULT_SIZES[:thumb][:height]}>", :png ] ,
-    medium: [ "#{DEFAULT_SIZES[:medium][:width]}x#{DEFAULT_SIZES[:medium][:height]}>", :jpg ]
-  },
-  default_url: MISSING_IMAGE_PATH,
-  filename_cleaner: Utilities::CleanseFilename,
-  processors: [:rotator]
 
-  #:restricted_characters => /[^A-Za-z0-9\.]/,
-  validates_attachment_content_type :image_file, content_type: /\Aimage\/.*\Z/
-  validates_attachment_presence :image_file
-  validates_attachment_size :image_file, greater_than: 1.kilobytes
+  has_one_attached :image_file
+
+  # has_attached_file :image_file,
+  #   styles: {
+  #   thumb: [ "#{DEFAULT_SIZES[:thumb][:width]}x#{DEFAULT_SIZES[:thumb][:height]}>", :png ] ,
+  #   medium: [ "#{DEFAULT_SIZES[:medium][:width]}x#{DEFAULT_SIZES[:medium][:height]}>", :jpg ]
+  # },
+  # default_url: MISSING_IMAGE_PATH,
+  # filename_cleaner: Utilities::CleanseFilename,
+  # processors: [:rotator]
+
+  # #:restricted_characters => /[^A-Za-z0-9\.]/,
+  # validates_attachment_content_type :image_file, content_type: /\Aimage\/.*\Z/
+  # validates_attachment_presence :image_file
+  # validates_attachment_size :image_file, greater_than: 1.kilobytes
 
   soft_validate(:sv_duplicate_image?)
 

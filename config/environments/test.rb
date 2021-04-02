@@ -53,6 +53,8 @@ TaxonWorks::Application.configure do
   # config.assets.debug = true
   # config.assets.quiet = false
 
+  config.active_storage.service = :test
+
   Settings.load_test_defaults(config)
   Settings.load_from_settings_file(config, :test)
 
