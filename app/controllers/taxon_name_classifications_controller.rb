@@ -19,6 +19,15 @@ class TaxonNameClassificationsController < ApplicationController
     end
   end
 
+  def api_index
+    @taxon_name_classifications = TaxonNameClassification.where(filter_params)
+        .with_project_id(sessions_current_project_id)
+  end
+
+  def api_show
+    render '/taxon_name_classifications/api/v1/show'
+  end
+
   # GET /taxon_name_relationships/:id.json
   def show
   end
@@ -127,7 +136,11 @@ class TaxonNameClassificationsController < ApplicationController
   private
 
   def filter_params
-    params.permit(:taxon_name_id)
+    params.permit(:taxon_name_id, :type, :kind)
+  end
+
+  def api_params
+    params.permit(:taxon_name_id, :type, :kind)
   end
 
   def set_taxon_name_classification
