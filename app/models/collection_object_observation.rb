@@ -34,8 +34,8 @@ class CollectionObjectObservation < ApplicationRecord
   # @param [ActionController::Parameters] params
   # @return [Scope]
   def self.find_for_autocomplete(params)
-    term = "#{params[:term]}%"
-    where('data LIKE ? OR data ILIKE ? OR data = ?', term, "#{term}%", '%term')
+    term = "#{params[:term]}"
+    where('data LIKE ? OR data ILIKE ? OR data = ?', sanitize_sql_like("#{term}%"), sanitize_sql_like("%#{term}%"), term)
       .where(project_id: params[:project_id])
   end
 

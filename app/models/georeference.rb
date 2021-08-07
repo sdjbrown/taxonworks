@@ -293,12 +293,13 @@ class Georeference < ApplicationRecord
   #   includes, or is equal to 'string' somewhere
   # Joins collecting_event.rb and matches %String% against verbatim_locality
   # .where(id in CollectingEvent.where{verbatim_locality like "%var%"})
-  # TODO: Arelize
   def self.with_locality_as(string, like)
-    likeness = like ? '%' : ''
-    query = "verbatim_locality #{like ? 'ilike' : '='} '#{likeness}#{string}#{likeness}'"
-
-    Georeference.where(collecting_event: CollectingEvent.where(query))
+    verbatim_locality = CollectingEvent.arel_table[:verbatim_locality]
+    Georeference.where(
+      collecting_event: CollectingEvent.where(
+        like ? verbatim_locality.matches("%#{sanitize_sql_like(string)}%") : verbatim_locality.eq(string)
+      )
+    )
   end
 
   protected

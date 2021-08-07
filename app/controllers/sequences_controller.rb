@@ -77,7 +77,7 @@ class SequencesController < ApplicationController
   end
 
   def autocomplete
-    t = "#{params[:term]}%"
+    t = "#{Sequence.sanitize_sql_like(params[:term])}%"
     @sequences = Sequence.where(project_id: sessions_current_project_id).where('sequence ILIKE ? OR name ILIKE ?', t, t)
     data = @sequences.collect do |t|
       l = [t.name, t.sequence[0..10]].compact.join(': ')

@@ -81,17 +81,17 @@ module Queries
 
     # @return [String]
     def start_wildcard
-      '%' + query_string
+      '%' + ApplicationRecord.sanitize_sql_like(query_string)
     end
 
     # @return [String]
     def end_wildcard
-      query_string + '%'
+      ApplicationRecord.sanitize_sql_like(query_string) + '%'
     end
 
     # @return [String]
     def start_and_end_wildcard
-      '%' + query_string + '%'
+      '%' + ApplicationRecord.sanitize_sql_like(query_string) + '%'
     end
 
     # @return [Array]
@@ -126,7 +126,7 @@ module Queries
     def fragments
       a = alphabetic_strings
       if a.size > 0 && a.size < 6
-        a.collect{|a| "%#{a}%"}
+        a.collect{|a| "%#{ApplicationRecord.sanitize_sql_like(a)}%"}
       else
         []
       end
@@ -141,18 +141,18 @@ module Queries
 
     # @return [Array]
     def wildcard_wrapped_integers
-      integers.collect{|i| "%#{i}%"}
+      integers.collect{|i| "%#{ApplicationRecord.sanitize_sql_like(i)}%"} # TODO: Check whether sanitization here is too precautious
     end
 
     # @return [Array]
     def wildcard_wrapped_years
-      years.collect{|i| "%#{i}%"}
+      years.collect{|i| "%#{ApplicationRecord.sanitize_sql_like(i)}%"} # TODO: Check whether sanitization here is too precautious
     end
 
     # @return [String]
     #   if `foo, and 123 and stuff` then %foo%and%123%and%stuff%
     def wildcard_pieces
-      '%' + query_string.gsub(/[\W]+/, '%') + '%'
+      '%' + query_string.scan(/[^\W]+/).map { |w| ApplicationRecord.sanitize_sql_like(w) }.join('%') + '%'
     end
 
     # @return [Integer]
@@ -179,7 +179,7 @@ module Queries
       if send("exact_#{a}".to_sym)
         table[a].eq(send(a).strip)
       else
-        table[a].matches('%' + send(a).strip.gsub(/\s+/, '%') + '%')
+        table[a].matches('%' + ApplicationRecord.sanitize_sql_like(send(a).strip) + '%')
       end
     end
 
@@ -191,7 +191,7 @@ module Queries
     # Match at two levels, for example, 'wa te" will match "Washington Co., Texas"
     # @return [Arel::Nodes::Grouping]
     def parent_child_where
-      a,b = query_string.split(/\s+/, 2)
+      a,b = query_string.split(/\s+/, 2).map { |s| ApplicationRecord.sanitize_sql_like(s) }
       return table[:id].eq(-1) if a.nil? || b.nil?
       table[:name].matches("#{a}%").and(parent[:name].matches("#{b}%"))
     end

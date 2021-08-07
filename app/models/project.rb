@@ -165,7 +165,7 @@ class Project < ApplicationRecord
   end
 
   def self.find_for_autocomplete(params)
-    where('name LIKE ?', "#{params[:term]}%")
+    where('name LIKE ?', "#{sanitize_sql_like(params[:term])}%")
   end
 
   protected

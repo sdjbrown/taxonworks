@@ -68,6 +68,14 @@ module Utilities::Strings
     /\A[-+]?\d+\z/ === string
   end
 
+  # Same functionality as ApplicationRecord.sanitize_sql_like but returning nil if param was nil
+  # @param [String] string
+  # @return [String]
+  def self.sanitize_sql_like(string)
+    ApplicationRecord.sanitize_sql_like(string) unless string.nil?
+  end
+
+
   # @param [String] string
   # @return [String, param]
   #   the goal is to sanitizie an individual string such that it is usable in *TAB* delimited, UTF-8, column.  See Download

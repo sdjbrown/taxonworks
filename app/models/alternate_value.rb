@@ -58,7 +58,7 @@ class AlternateValue < ApplicationRecord
 
   def self.find_for_autocomplete(params)
     where('value ILIKE ? AND ((project_id IS NULL) OR (project_id = ?))',
-          "%#{params[:term]}%", params[:project_id])
+          "%#{sanitize_sql_like(params[:term])}%", params[:project_id])
   end
 
   # @return [Symbol]

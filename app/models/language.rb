@@ -31,7 +31,7 @@ class Language < ApplicationRecord
   scope :used_recently_on_sources, -> { joins(sources: [:project_sources]).includes(sources: [:project_sources]).where(sources: { created_at: 10.weeks.ago..Time.now } ).order('"sources"."created_at" DESC') }
   scope :used_recently_on_serials, -> { joins(:serials).includes(:serials).where(serials: { created_at: 10.weeks.ago..Time.now } ).order('"serials"."created_at" DESC') }
 
-  scope :with_english_name_containing, ->(name) {where('english_name ILIKE ?', "%#{name}%")}  # non-case sensitive comparison
+  scope :with_english_name_containing, ->(name) {where('english_name ILIKE ?', "%#{sanitize_sql_like(name)}%")}  # non-case sensitive comparison
 
   validates_presence_of :english_name, :alpha_3_bibliographic
 
@@ -47,7 +47,7 @@ class Language < ApplicationRecord
   end
 
   def self.find_for_autocomplete(params)
-    term = "#{params[:term]}%"
+    term = "#{sanitize_sql_like(params[:term])}%"
     where('english_name ILIKE ? OR english_name = ?', term, params[:term])
   end
 

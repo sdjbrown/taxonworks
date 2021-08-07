@@ -84,7 +84,8 @@ class ProtocolsController < ApplicationController
   end
 
   def autocomplete
-    @protocol = Protocol.where(project_id: sessions_current_project_id).where('name ILIKE ?', "#{params[:term]}%")
+    Protocol.sanitize_sql_like(params[:term])
+    @protocol = Protocol.where(project_id: sessions_current_project_id).where('name ILIKE ?', "#{term}%")
 
     data = @protocol.collect do |t|
       {id:              t.id,

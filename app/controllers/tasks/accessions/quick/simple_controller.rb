@@ -29,7 +29,8 @@ class Tasks::Accessions::Quick::SimpleController < ApplicationController
   end
 
   def collecting_events
-    @collecting_events = CollectingEvent.where(project_id: sessions_current_project_id).where('verbatim_locality ILIKE ?', "%#{params[:term]}%").limit(10)
+    term = CollectingEvent.sanitize_sql_like(params[:term])
+    @collecting_events = CollectingEvent.where(project_id: sessions_current_project_id).where('verbatim_locality ILIKE ?', "%#{term}%").limit(10)
   end
 
   protected

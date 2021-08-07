@@ -3,7 +3,7 @@ module Workbench::ListHelper
 
   def similarly_named_records_list(instance)
     model   = instance.class
-    name    = instance.name
+    name    = instance.name ### REVIEW!!!!
     records = model.where(['(name LIKE ? OR NAME like ?) AND id != ?', "#{name}%", "%#{name}%", instance]).limit(5)
     content_tag(:span) do
       content_tag(:em, 'Similarly named records: ') +

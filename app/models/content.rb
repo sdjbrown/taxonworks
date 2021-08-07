@@ -86,6 +86,7 @@ class Content < ApplicationRecord
   end
 
   def self.find_for_autocomplete(params)
-    where('text ILIKE ? OR text ILIKE ?', "#{params[:term]}%", "%#{params[:term]}%")
+    term = sanitize_sql_like(params[:term])
+    where('text ILIKE ? OR text ILIKE ?', "#{term}%", "%#{term}%")
   end
 end

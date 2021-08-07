@@ -14,7 +14,7 @@ module Tasks::People::AuthorHelper
   end
 
   def select_authors(letter)  # TODO: @mjy
-    Person.with_role('SourceAuthor').where('last_name ilike ?', letter).order(:last_name).select(:last_name)
+    Person.with_role('SourceAuthor').where('last_name ilike ?', Person.sanitize_sql_like(letter)).order(:last_name).select(:last_name)
   end
 
   def cite_count(source)

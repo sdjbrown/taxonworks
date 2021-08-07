@@ -89,7 +89,8 @@ class OriginRelationshipsController < ApplicationController
 
   # TODO: remove
   def autocomplete
-    @origin_relationships = origin_relationship.where(project_id: sessions_current_project_id).where('origin_relationship ILIKE ?', "#{params[:term]}%")
+    term = OriginRelationship.sanitize_sql_like(params[:term])
+    @origin_relationships = origin_relationship.where(project_id: sessions_current_project_id).where('origin_relationship ILIKE ?', "#{term}%")
 
     data = @origin_relationships.collect do |t|
       {id:              t.id,

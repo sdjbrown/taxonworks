@@ -87,7 +87,8 @@ class ObservationMatricesController < ApplicationController
   end
 
   def autocomplete
-    @observation_matrices = ObservationMatrix.where(project_id: sessions_current_project_id).where('name ilike ?', "%#{params[:term]}%")
+    term = ObservationMatrix.sanitize_sql_like(params[:term])
+    @observation_matrices = ObservationMatrix.where(project_id: sessions_current_project_id).where('name ilike ?', "%#{term}%")
   end
 
   def search

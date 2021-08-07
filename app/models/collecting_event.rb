@@ -385,8 +385,8 @@ class CollectingEvent < ApplicationRecord
         sql_string = Utilities::Dates.date_sql_from_params(params)
 
         # processing text data
-        v_locality_fragment = params['verbatim_locality_text']
-        any_label_fragment  = params['any_label_text']
+        v_locality_fragment = sanitize_sql_like(params['verbatim_locality_text'] || '')
+        any_label_fragment  = sanitize_sql_like(params['any_label_text'] || '')
         id_fragment = params['identifier_text']
 
         prefix = ''
@@ -432,9 +432,9 @@ class CollectingEvent < ApplicationRecord
   #   TODO: deprecate
   def similar_lat_longs(lat, long, project_id, piece = '', include_values = true)
     sql = '('
-    sql += "verbatim_label LIKE '%#{::Utilities::Strings.escape_single_quote(lat)}%'" unless lat.blank?
-    sql += " or verbatim_label LIKE '%#{::Utilities::Strings.escape_single_quote(long)}%'" unless long.blank?
-    sql += " or verbatim_label LIKE '%#{::Utilities::Strings.escape_single_quote(piece)}%'" unless piece.blank?
+    sql += "verbatim_label LIKE '%#{::Utilities::Strings.escape_single_quote(sanitize_sql_like(lat))}%'" unless lat.blank?
+    sql += " or verbatim_label LIKE '%#{::Utilities::Strings.escape_single_quote(sanitize_sql_like(long))}%'" unless long.blank?
+    sql += " or verbatim_label LIKE '%#{::Utilities::Strings.escape_single_quote(sanitize_sql_like(piece))}%'" unless piece.blank?
     sql += ')'
     sql += ' and (verbatim_latitude is null or verbatim_longitude is null)' unless include_values
 

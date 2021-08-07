@@ -70,7 +70,7 @@ class Citation < ApplicationRecord
   # TODO: deprecate
   # @return [Scope of matching sources]
   def self.find_for_autocomplete(params)
-    term = params['term']
+    term = sanitize_sql_like(params['term'])
     ending = term + '%'
     wrapped = '%' + term + '%'
     joins(:source).where('sources.cached ILIKE ? OR sources.cached ILIKE ? OR citation_object_type LIKE ?', ending, wrapped, ending).with_project_id(params[:project_id])

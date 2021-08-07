@@ -43,7 +43,7 @@ class DataAttribute < ApplicationRecord
 
   # Needs to extend to predicate/value searches
   def self.find_for_autocomplete(params)
-    where('value LIKE ?', "%#{params[:term]}%").with_project_id(params[:project_id])
+    where('value LIKE ?', "%#{sanitize_sql_like(params[:term])}%").with_project_id(params[:project_id])
   end
 
   # @return [Boolean]

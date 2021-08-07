@@ -110,7 +110,7 @@ class GeographicArea < ApplicationRecord
   end
 
   scope :with_name_like, lambda { |string|
-    where(['name like ?', "#{string}%"])
+    where(['name like ?', "#{sanitize_sql_like(string)}%"])
   }
 
   # @param  [Array] of names of self and parent
