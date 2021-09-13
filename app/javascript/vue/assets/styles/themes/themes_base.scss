@@ -1,0 +1,36 @@
+@import '../mixins/themify.scss';
+@import '../utils/themed.scss';
+
+body {
+  @include themify($themes) {
+    color: themed('textColor');  
+    background-color: themed('backgroundColor');
+
+    input[type="text"],
+    textarea {
+      background-color: themed('backgroundInputColor');
+      color: themed('textColor');
+    }
+  
+    #task_carrousel {
+      .task_card, .task_description {
+        background-color: themed('backgroundPanelColor');
+        color: themed('textColor');  
+      }
+
+      .navigation {
+        background-color: themed('backgroundPanelColor');
+      }
+    }
+
+    .panel, 
+    fieldset {
+      background-color: themed('backgroundPanelColor');
+    }
+
+    #quick_bar {
+      background-color: themed('quickBarColor');
+      color: themed('textColor');  
+    }
+  }
+}
