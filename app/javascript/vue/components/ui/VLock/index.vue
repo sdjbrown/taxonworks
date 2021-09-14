@@ -39,6 +39,9 @@ export default {
 }
 </script>
 <style lang="scss">
+
+@import "assets/styles/mixins/themify.scss";
+
 $primary: #FFDA44;
 $lightGrey: #99A3BA;
 
@@ -56,7 +59,6 @@ $lightGrey: #99A3BA;
       display: block;
       color: $lightGrey;
       position: relative;
-      vertical-align: middle;
       white-space: nowrap;
       transition: color .3s ease;
       &:before,
@@ -72,14 +74,24 @@ $lightGrey: #99A3BA;
         width: 48px;
         height: 28px;
         background: #E4ECFA;
+        border-style: solid;
+        border-width: 1px;
+        border-color: transparent;
+        @include themify($themes) {
+          border-color: themed('borderColor');
+          background: themed('backgroundInputColor');
+        }
         transition: all .3s ease;
       }
       &:after {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
         background: #fff;
-        top: 2px;
-        left: 3px;
+        @include themify($themes) {
+          background: themed('backgroundPanelColor');
+        }
+        top: 4px;
+        left: 5px;
         box-shadow: 0 1px 3px rgba(#121621, .1);
         transition: all .45s ease;
       }
@@ -88,8 +100,8 @@ $lightGrey: #99A3BA;
         height: 7px;
         background: $lightGrey;
         position: absolute;
-        left: 11px;
-        bottom: 7px;
+        left: 12px;
+        bottom: 6px;
         border-radius: 2px;
         display: block;
         z-index: 1;
@@ -100,6 +112,9 @@ $lightGrey: #99A3BA;
           height: 2px;
           border-radius: 1px;
           background: #fff;
+          @include themify($themes) {
+            background: themed('backgroundPanelColor');
+          }
           position: absolute;
           display: block;
           left: 50%;
@@ -161,6 +176,9 @@ $lightGrey: #99A3BA;
         }
         &:after {
           background: #fff;
+          @include themify($themes) {
+            background: themed('backgroundPanelColor');
+          }
           transform: translate(18px, 0);
         }
         em {
