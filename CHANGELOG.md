@@ -7,15 +7,25 @@ This project <em>does not yet</em> adheres to [Semantic Versioning](https://semv
 
 ## [unreleased]
 
+### Fixed
+- Taxon determinations list in comprehensive task
+- The clone button doesn't trigger update taxon name after authors were cloned [#2513]
+- Georeference count in new collecting event task [#2519]
+- Autofocus in New taxon name task [#2523]
+- Geographic area counts as georeference. Soft validations are sometimes loaded before saving georeferences [#2519]
+
+### Add
+- Soft_validation fix. Objective synonyms should share the same type.
+
 ### Changed
 - Include project's name in CoLDP exports filename [#2509]
 - Implemented STI for downloads [#2498]
 
-### Fixed
-- The clone button doesn't trigger update taxon name after authors were cloned [#2513]
-
 [#2509]: https://github.com/SpeciesFileGroup/taxonworks/issues/2509
 [#2498]: https://github.com/SpeciesFileGroup/taxonworks/pull/2498
+[#2519]: https://github.com/SpeciesFileGroup/taxonworks/pull/2519
+[#2523]: https://github.com/SpeciesFileGroup/taxonworks/pull/2523
+[#2519]: https://github.com/SpeciesFileGroup/taxonworks/pull/2519
 
 ## [0.19.7] - 2021-09-09
 
