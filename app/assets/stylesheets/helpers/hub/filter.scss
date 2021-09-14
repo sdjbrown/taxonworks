@@ -10,7 +10,6 @@
   #filter {
     margin-top: 0px;
     margin-right: $standard_margin; 
-    font-weight: $font_light;
     position:relative;
 
     #search-filter {
@@ -25,8 +24,6 @@
 
     .filter-title {
       font-size: $font_small; 
-      font-weight: $font_light;
-      color:gray;
     }
 
     .navigation-controls-type  {
@@ -45,7 +42,6 @@
       box-sizing: border-box;
       width: 100%;
       padding: $standard_padding;
-      font-size: $font_small;
       justify-content: flex-start;
       border-left:4px solid transparent;
     }
@@ -56,7 +52,6 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      font-size: $font_small;
       opacity: 0.5;
       right:$standard_padding;
     }
@@ -82,7 +77,7 @@
     }
 
     .activated {
-      background-color: $color-complement-3 !important;
+      background-color: $color-complement-3;
             opacity: 1 !important;
     } 
     .activated.status {
@@ -186,14 +181,13 @@
       display: flex;
       align-items: center;
       position: absolute;
-      background-color: $navigation_background;
       width: 90px;
       height: 24px;    
       justify-content: space-around;
       border-radius: 3px;
       border-bottom-left-radius: 0px;
       border-top-left-radius: 0px;  
-      border:1px solid $navigation_border;
+      border: 1px solid $navigation_border;
       background-color: $color-secondary-2-1;
     }
 

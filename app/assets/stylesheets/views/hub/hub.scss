@@ -6,16 +6,8 @@
     text-decoration: none;
   }
 
-  h1 {
-    font-weight: 300;
-
-  }
-
-  h2 {
-    font-weight: 300;
-
-  }
-
+  h1,
+  h2,
   h3 {
     font-weight: 300;
   }
@@ -82,12 +74,15 @@
         padding: $standard_padding*2;
         padding-top: $standard_padding;
         padding-bottom: $standard_padding*0.9;
-        font-size:$font_small;
-        font-weight: 300;
         text-transform: uppercase;
         border-bottom: 2px solid transparent;
         border-top: 2px solid transparent;
       }
+    }
+
+    .current_hub_category a {
+      border-bottom: 2px solid $color-secondary-2-4;
+      color: $default_text;
     }
   }  
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="panel basic-information">
+  <div class="panel block-layout">
     <spinner-component v-if="spinner" />
     <a
       :name="linkName"
@@ -124,7 +124,8 @@ export default {
     border-left-color: #fc615d;
   }
 
-  .basic-information {
+  .header {
+    border-bottom: 1px solid #f5f5f5;
     border-top-left-radius: 0px;
   }
 </style>

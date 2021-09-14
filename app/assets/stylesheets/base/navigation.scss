@@ -41,7 +41,6 @@ a, .link {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  font-weight: 300;
   position: relative;
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
   background-color: #FFF;
@@ -125,7 +124,6 @@ a, .link {
     margin-left: 60px;
     padding: 5px;
     font-size: $font_title;
-    font-weight: 300;
   }
 
   .hub-project:hover {
@@ -258,7 +256,6 @@ a, .link {
   list-style: none;
   padding-left: 0px;
   margin-top: 0px;
-  font-weight: 300;
 
   li {
     display: flex;

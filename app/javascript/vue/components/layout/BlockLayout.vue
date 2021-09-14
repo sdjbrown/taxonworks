@@ -68,7 +68,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .block-layout {
   border-top-left-radius: 0px;
   transition: all 1s;
