@@ -1,0 +1,25 @@
+@import '../mixins/themify.scss';
+#basic-images.dropzone, .vue-dropzone {
+  padding: 1em*4 !important;
+  width: 100%;
+  border-radius: 5px;
+  border-style: dashed;
+
+  .dz-details, span {
+    cursor: pointer;
+  }
+
+  @include themify($themes) {
+    color: themed('textColor');  
+    background-color: themed('backgroundInputColor');
+    border-color: themed('borderColor');
+  }
+}
+
+.dz-default {
+  font-weight: 300 !important;
+  font-size: 1.5em;
+  @include themify($themes) {
+    color: themed('textColor');  
+  }
+}

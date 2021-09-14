@@ -1,15 +1,60 @@
 @import '../mixins/themify.scss';
-@import '../utils/themed.scss';
 
 body {
+  transition: all ease 0.3s;
   @include themify($themes) {
     color: themed('textColor');  
     background-color: themed('backgroundColor');
 
     input[type="text"],
+    input,
+    select,
+    option,
     textarea {
       background-color: themed('backgroundInputColor');
       color: themed('textColor');
+      border-color: themed('borderColor');
+    }
+
+    table,
+    th {
+      background-color: themed('backgroundInputColor');
+      color: themed('textColor');
+    }
+
+    .circle-button {
+      box-shadow: themed('boxShadowButton');
+    }
+
+    .EasyMDEContainer {
+
+      .editor-toolbar {
+        border-color: themed('borderColor');
+      }
+
+      .editor-preview {
+        background-color: themed('backgroundInputColor');
+      }
+
+      .CodeMirror {
+        background-color: themed('backgroundInputColor');
+        color: themed('textColor');
+        border-color: themed('borderColor');
+      }
+
+      .fa {
+        color: themed('textColor');
+      }
+    }
+
+    .table-entrys-list li {
+      border-top-color: themed('borderColor');
+    }
+
+    .block-layout {
+      .header {
+        border-bottom-color: themed('borderColor');
+      }
     }
   
     #task_carrousel {
@@ -31,6 +76,16 @@ body {
     #quick_bar {
       background-color: themed('quickBarColor');
       color: themed('textColor');  
+    }
+
+    // New taxon name 
+
+    .original-combination {
+      .combination {
+        background-color: themed('backgroundInputColor');
+        color: themed('textColor');
+        border-color: themed('borderColor');
+      }
     }
   }
 }
