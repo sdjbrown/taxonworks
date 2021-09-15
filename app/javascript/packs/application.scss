@@ -12,6 +12,9 @@ $font-prefix: '../../../node_modules/@ibm/plex';
 @import '../vue/assets/styles/components/dropzone.scss';
 @import '../vue/assets/styles/components/slide_panels.scss';
 @import '../vue/assets/styles/components/pinboard/pinboard_items.scss';
+
+@import '../vue/assets/styles/views/sessions/login.scss';
+
 @import 'node_modules/@ibm/plex/scss/ibm-plex.scss';
 @import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
 @import '../vue/assets/styles/filter.scss';

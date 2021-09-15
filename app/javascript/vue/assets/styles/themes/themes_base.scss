@@ -36,6 +36,16 @@ body {
     .radial-annotator {
       color: themed('textColor');
     }
+    table {
+    .even {
+      background-color: themed('backgroundPanelColor');
+    }
+
+    .contextMenuCells td {
+      border-bottom-color: themed('borderColor');
+      border-left-color: themed('borderColor');
+    }
+  }
 
     #hub {
       #filter {

@@ -9,38 +9,46 @@
   height: 200px;
   text-align: center;
   .logo-text {
-    background-image: image-url('taxonworks_logo-full.svg');
+    background-image: url('assets/images/logo/taxonworks_logo_full.svg');
     height: 80px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    margin-bottom: $standard_margin*4;
+    margin-bottom: tw-whitespace('large');
+
+    @include themify($themes) {
+      background-image: url('assets/images/logo/taxonworks_logo_full_white.svg');
+    }
   }
 
   h3 {
     text-align: center;
-    padding: $standard_margin;
+    padding: tw-whitespace('default');
   }
 
   .box-login {
     background-color: #FFF;
-    padding: $standard_padding *2;
-    padding-top: $standard_padding*0.5;
+    padding: tw-whitespace('large');
+    padding-top: tw-whitespace('small');
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+
+    @include themify($themes) {
+      background-color: themed('backgroundPanelColor');
+    }
   }
   .item {
     display: flex;
     justify-content: space-between;
   }
   .item a {
-    padding-top: $standard_padding;
+    padding-top: tw-whitespace('default');
     text-decoration: none;
   }
 
   input {
     border-radius: 0px;
     width: 100%;
-    font-size: $font_normal;
+    font-size: tw-font('normal');
   }
 
   input[type="submit"] {
