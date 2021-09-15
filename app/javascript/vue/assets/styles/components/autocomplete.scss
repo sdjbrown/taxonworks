@@ -6,7 +6,6 @@
   border-radius: 2px;
   border: 1px solid tw-colors('inputBorder');
   min-height: tw-input-sizes('medium');
-  background-color: #FFF;
   box-sizing: border-box;
   padding-right: 24px;
   background-size: 18px;
@@ -31,18 +30,30 @@
     list-style: none;
     position: absolute;
     min-width: 300px;
-    border: 1px solid tw-colors('navigationBorder');
+    border: 1px solid tw-color('navigationBorder');
     box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
     border-top: none;
-    border-bottom: 4px solid tw-colors('navigationBorder');
+    border-bottom: 2px solid tw-color('navigationBorder');
+
+    @include themify($themes) {
+      background-color: themed('backgroundPanelColor');
+      border-color: themed('borderColor');
+      border-bottom-color: themed('borderColor');
+    }
   }
-  li {
+
+  .vue-autocomplete-item {
     cursor: pointer;
-    padding: 1em * 0.5;
-    border-top: 1px solid tw-colors('navigationBorder');
+    padding: tw-whitespace('small');
+    border-top: 1px solid tw-color('navigationBorder');
+
+    @include themify($themes) {
+      border-top-color: themed('borderColor');
+    }
   }
+
   .active {
-    background-color: tw-colors('navigationBorder');
+    background-color: tw-color('navigationBorder');
   }
 
 }

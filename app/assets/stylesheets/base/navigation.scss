@@ -144,40 +144,6 @@ a, .link {
 
 }
 
-.context-menu {
-  display: flex;
-  list-style: none;
-  align-items: center;
-  margin: 0px;
-
-  &> li:last-child:after {
-    content: none;
-  }
-
-  &> li:first-child {
-    padding-left: 0px;
-  }
-
-  &> li:last-child {
-    border-right: none;
-    padding-right: 0px;
-    padding-left: $standard_padding;
-  }
-
-  &> li {
-    justify-content: center;
-    //text-align: center;
-    padding-left: $standard_padding;
-    padding-right: $standard_padding;
-    border-right: 1px solid $navigation_border;
-  }
-
-  &> li a {
-    font-size: $font_small;
-    text-decoration: none;
-  }
-}
-
 /* see http://css-tricks.com/snippets/css/a-guide-to-flexbox/, seems nice */
 .horizontal_navbar {
   list-style: none;

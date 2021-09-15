@@ -1,0 +1,36 @@
+.context-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  margin: 0px;
+
+  &> li:last-child:after {
+    content: none;
+  }
+
+  &> li:first-child {
+    padding-left: 0px;
+  }
+
+  &> li:last-child {
+    border-right: none;
+    padding-right: 0px;
+    padding-left: tw-whitespace('default');
+  }
+
+  &> li {
+    justify-content: center;
+    padding-left: tw-whitespace('default');
+    padding-right: tw-whitespace('default');
+    border-right: 1px solid tw-color('navigationBorder');
+
+    @include themify($themes) {
+      border-right-color: themed('borderColor');
+    }
+  }
+
+  &> li a {
+    font-size: tw-font-sizes('small');
+    text-decoration: none;
+  }
+}
