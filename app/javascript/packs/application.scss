@@ -13,7 +13,12 @@ $font-prefix: '../../../node_modules/@ibm/plex';
 @import '../vue/assets/styles/components/slide_panels.scss';
 @import '../vue/assets/styles/components/pinboard/pinboard_items.scss';
 @import '../vue/assets/styles/components/lists.scss';
+@import '../vue/assets/styles/components/table.scss';
+@import '../vue/assets/styles/components/modal.scss';
+@import '../vue/assets/styles/components/menu.scss';
 
+@import '../vue/assets/styles/views/hub/hub.scss';
+@import '../vue/assets/styles/views/hub/cards.scss';
 @import '../vue/assets/styles/views/sessions/login.scss';
 
 @import 'node_modules/@ibm/plex/scss/ibm-plex.scss';

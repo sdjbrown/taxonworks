@@ -1,0 +1,105 @@
+.tablesorter {
+  width: 100%;
+}
+table {
+  box-shadow: 0 0 2px 0 tw-color('navigationBorder');
+  width: auto;
+  border-spacing: 0;
+  background-color: tw-color('backgroundPanel');
+  border-collapse: collapse;  
+
+  .underlined_elements {
+      border-spacing: 0; 
+  }
+
+  .top_align_text {
+    td {
+      vertical-align: top; 
+    }
+  }
+
+  th.headerSortUp { 
+    background-image: url('assets/images/icons/arrow-up.svg');
+    background-position: right tw-whitespace('default') center;
+    padding-right: tw-whitespace('default');
+    background-repeat: no-repeat;
+  } 
+
+  th.headerSortDown { 
+    background-image: url('assets/images/icons/arrow-down.svg');
+    background-position: right tw-whitespace('default') center;
+    padding-right: tw-whitespace('default');
+    background-repeat: no-repeat;  
+  } 
+
+  .table-options {
+    display: none;
+  }
+  .even {
+    background-color: #f8f8f8;
+
+    @include themify($themes) {
+      background-color: themed('rowEven');
+    }
+  }
+  .odd {
+    background-color: tw-color('backgroundPanel');
+
+    @include themify($themes) {
+      background-color: themed('rowOdd');
+    }
+  }
+
+  td {
+    padding-left: tw-whitespace('default');
+    padding-right: tw-whitespace('default');
+  }
+
+  th:hover {
+    background-color: tw-color('hover');
+  }
+
+  tr {
+    margin: 0px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  th {
+    background-color: tw-color('backgroundPanel');
+    padding-left: tw-whitespace('default');
+    padding-right: tw-whitespace('default');
+    font-weight: 500;
+    font-size: 12px;
+    border-bottom: 4px solid tw-color('navigationBorder');
+    text-align: left;
+    a {
+      img {
+        display: none;
+      }
+    }
+
+    @include themify($themes) {
+      border-bottom-color: themed('borderColor');
+      color: themed('textColor');
+    }
+  }
+
+  .contextMenuCells { 
+    td {
+      border-bottom: 1px solid tw-color('navigationBorder');
+      border-left: 1px solid tw-color('navigationBorder');
+    }
+  }
+  .contextMenuCells:hover {
+    background-color: tw-color('hover');
+
+    td {
+      border-left:1px solid transparent;
+    }
+  }
+
+  .highlight {
+    background-color: tw-color('hover');
+  }
+}

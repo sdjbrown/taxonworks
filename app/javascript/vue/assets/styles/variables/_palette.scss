@@ -1,10 +1,10 @@
 $tw-colors: (
   'background': #f7f8fc,
   'black': #444444,
-  'create': #9ccc65,
-  'update': #9ccc65,
+  'create': #8ac65d,
+  'update': #8ac65d,
   'data': #006ebf,
-  'primary': #5D9ECE,
+  'primary': #5d99c6,
   'destroy': #F44336,
   'secondary': #5a1321,
   'warning': #ff8c00,
@@ -12,5 +12,7 @@ $tw-colors: (
   'white': #FFFFFF,
   'inputBorder': #d5d5d5,
   'navigationBorder': #e5e5e5,
+  'backgroundPanel': #FFFFFF,
   'charcoal': #36454F,
+  'hover': rgba(65, 132, 228, 15%)
 );

@@ -190,9 +190,6 @@ export default {
 }
 </script>
 <style scoped>
-  .highlight {
-    background-color: #E3E8E3;
-  }
   .vue-table {
     min-width: 100%;
   }

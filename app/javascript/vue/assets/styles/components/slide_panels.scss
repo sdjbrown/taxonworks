@@ -21,7 +21,7 @@ $default-padding: 2em;
     border-left: 1px solid;
     border-left-color: themed('borderColor');
   }
-  font-weight: tw-font-weight('light');
+  font-weight: tw-font-weight('normal');
   
   a {
     text-decoration: none;
@@ -100,7 +100,7 @@ $default-padding: 2em;
   .slide-panel-description {
     @include arrow-box-right(50%);
     display: none;
-    font-weight: 300;
+    font-weight: tw-font-weight('normal');
     position: absolute;
     font-size: tw-font('small');
     white-space: nowrap;
@@ -178,5 +178,12 @@ $default-padding: 2em;
   .slide-panel-circle-icon {
     left: auto;
     right: -27px;
+  }
+}
+
+
+#pdfViewerContainer {
+  @include themify($themes) {
+    background-color: themed('backgroundPanelColor');
   }
 }

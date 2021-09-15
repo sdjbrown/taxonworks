@@ -1,0 +1,43 @@
+#data_cards {
+  @include themify($themes) {
+    .data_card {
+      background-color: themed('backgroundPanelColor');
+      a {
+        color: themed('textColor');
+      }
+    }
+  }
+}
+
+
+
+#task_carrousel {
+  @include themify($themes) {
+    .task_card, .task_description {
+      background-color: themed('backgroundPanelColor');
+      color: themed('textColor');  
+    }
+
+    .navigation {
+      background-color: themed('backgroundPanelColor');
+    }
+
+    .task_name {
+      font-weight: tw-font-weight('medium');
+    }
+  }
+}
+
+.panel, 
+fieldset {
+  @include themify($themes) {
+    background-color: themed('backgroundPanelColor');
+  }
+}
+
+#quick_bar {
+  @include themify($themes) {
+    background-color: themed('quickBarColor');
+    color: themed('textColor');
+  }
+}

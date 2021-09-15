@@ -2,7 +2,7 @@
   <div
     v-if="validationSections.length"
     class="panel content soft-validation-box validation-warning">
-    <div class="header flex-separate">
+    <div class="soft-validation-box__header flex-separate">
       <h3>Soft Validation</h3>
     </div>
     <div
@@ -131,7 +131,7 @@ export default {
     .body {
       padding: 12px;
     }
-    .header {
+    .soft-validation-box__header {
       padding-left: 12px;
       padding-right: 12px;
     }
@@ -144,14 +144,6 @@ export default {
     }
     li:first-letter {
       text-transform: capitalize;
-    }
-    hr {
-        height: 1px;
-        color: #f5f5f5;
-        background: #f5f5f5;
-        font-size: 0;
-        margin: 15px;
-        border: 0;
     }
   }
 

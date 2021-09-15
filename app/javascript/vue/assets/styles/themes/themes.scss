@@ -7,7 +7,10 @@ $themes: (
     backgroundInputColor: #1c2128,
     borderColor: #444c56,
     boxShadowButton: 0px 1px 2px 0px rgba(0, 0, 0, 0.2),
-    hover: #2d333b,
-    activeInput: #2d3b2d
+    hover: rgba(65, 132, 228, 15%),
+    activeInput: rgba(65, 132, 228, 15%),
+
+    rowEven: #2d333b,
+    rowOdd: #1c2128
   )
 );

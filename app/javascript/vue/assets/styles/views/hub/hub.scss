@@ -1,0 +1,40 @@
+#hub {
+  @include themify($themes) {
+    #filter {
+      .navigation-controls-type {
+        .navigation-item {
+          border-color: themed('borderColor');
+        }
+      }
+
+      .activated {
+        background-color: themed('activeInput');
+      }
+
+      .status-name {
+        color: themed('textColor');
+        background-color: themed('backgroundInputColor');
+        border-color: themed('borderColor');
+      }
+
+      .switch, .filter-category {
+        border-color: themed('borderColor');
+        color: themed('textColor');
+        box-shadow: none;
+        background-color: themed('backgroundInputColor');
+      }
+
+      .slider:before {
+        border-color: themed('borderColor');
+        background-color: themed('backgroundPanelColor');
+      }
+    }
+
+    #hub_tabs {
+      a:hover,
+      .current_hub_category a {
+        color: themed('textColor');
+      }
+    }
+  }
+}
