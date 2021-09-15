@@ -1,8 +1,9 @@
 @import '../mixins/themify.scss';
 
 body {
-  transition: all ease 0.3s;
+
   @include themify($themes) {
+    color-scheme: dark;
     color: themed('textColor');  
     background-color: themed('backgroundColor');
 
@@ -16,8 +17,18 @@ body {
       border-color: themed('borderColor');
     }
 
+    input[type="checkbox"] {
+      border-color: themed('borderColor');
+      background-color: transparent
+    }
+
     table,
     th {
+      background-color: themed('backgroundInputColor');
+      color: themed('textColor');
+    }
+
+    button:disabled {
       background-color: themed('backgroundInputColor');
       color: themed('textColor');
     }

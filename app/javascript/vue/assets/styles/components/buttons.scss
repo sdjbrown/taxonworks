@@ -9,6 +9,16 @@
   padding-right: 0.9em;
 }
 
+
+.button {
+  @include themify($themes) {
+    &:disabled {
+      color: themed('textColor');  
+      background-color: themed('backgroundColor');
+    }
+  }
+}
+
 .btn-link {
   @extend .btn;
   display: table-cell;  

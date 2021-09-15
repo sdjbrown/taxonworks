@@ -8,6 +8,7 @@
       <% next if content.to_s.empty? || name.to_s.empty? %>
       <meta name="<%= name.to_s %>" content="<%= content.to_s %>">
     <% end %>
+    <meta name="color-scheme" content="dark light">
 
     <%= yield :head %>
 

@@ -1,3 +1,5 @@
+@import '../mixins/arrows.scss';
+
 $header-color: #00796B;
 $category-header-color: #004D40;
 $default-padding: 2em;
@@ -11,7 +13,11 @@ $default-padding: 2em;
   width: 400px;
   height: 100vh;
   background-color: #FFF;
-  font-weight: 300;
+  @include themify($themes) {
+    background-color: themed('backgroundColor');
+    color: themed('textColor');
+  }
+  font-weight: tw-font-weight('light');
   
   a {
     text-decoration: none;
@@ -26,16 +32,22 @@ $default-padding: 2em;
     width: 100%;
     height: calc(100vh - 60px) !important;
     box-shadow: 0px 1px 2px 0px #888;
+
+    @include themify($themes) {
+      box-shadow: none;
+      border-left: 1px solid;
+      border-left-color: themed('borderColor');
+    }
   }
 
   .slide-panel-header {
     width: auto;
     height: 60px;
     display: flex;
-    font-size: $font_title;
+    font-size: tw-font-sizes('title');
     color: #FFF;
     align-items: center;
-    padding-left: $default-padding;
+    padding-left: tw-whitespace('default');
     background-color: $header-color;
   }
 
@@ -45,7 +57,7 @@ $default-padding: 2em;
   }
 
   .slide-panel-category-content {
-    padding-left: $default-padding;
+    padding-left: tw-whitespace('default');
   }
 
   .slide-panel-category-header {
@@ -53,11 +65,16 @@ $default-padding: 2em;
     color: #828282;
     cursor: pointer;
     background-color: #F9F9F9;
-    padding-left: $default-padding;
+    padding-left: tw-whitespace('large');
     border-left: 5px solid $category-header-color;
-    background-image: image-url('arrow-down.svg');
+    background-image: url('assets/images/icons/arrow-down.svg');
     background-position: right 1em center;
     background-repeat: no-repeat;
+
+    @include themify($themes) {
+      background-color: themed('backgroundPanelColor');
+      color: themed('textColor');
+    }
   }
 
   .slide-panel-circle-icon {
@@ -70,11 +87,10 @@ $default-padding: 2em;
     top: 50vh;
     border-radius: 50%;
     background-color: $category-header-color;
-    background-image: image-url('b_pin.svg');
+    background-image: url('assets/images/icons/b_pin.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25px;
-    box-shadow: 0px 1px 2px 0px #444;
     transition: background-size 0.5s ease, opacity 0.3s ease;
   }
 
@@ -89,16 +105,16 @@ $default-padding: 2em;
     display: none;
     font-weight: 300;
     position: absolute;
-    font-size: $font_small;
+    font-size: tw-font('small');
     white-space: nowrap;
-    padding: $standard_padding*0.5;
-    background-color: $color-help-description;
-    color: $color-help-text;
+    padding: tw-whitespace('small');
+    background-color: tw-color('black');
+    color: tw-color('white');
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
     right: 70px;
     top: 13px;
-    padding-left: $standard_padding;
-    padding-right: $standard_padding;
+    padding-left: tw-whitespace('medium');
+    padding-right: tw-whitespace('medium');
     border-radius: 3px;
   }
 
@@ -130,7 +146,7 @@ $default-padding: 2em;
     .message {
       text-align: center;
       font-weight: 300;
-      font-size: 1.5em;
+      font-size: tw-whitespace('medium');
     }
   }
 }
@@ -142,7 +158,7 @@ $default-padding: 2em;
   .slide-panel-circle-icon {
     top: calc(50vh + 65px);
     background-color: #004b77;
-    background-image: image-url('paper-clips.svg');
+    background-image: url('assets/images/icons/paper-clips.svg');
   }
 }
 
@@ -153,42 +169,11 @@ $default-padding: 2em;
   .slide-panel-circle-icon {
     top: calc(50vh - 65px);
     background-color: #770000;
-    background-image: image-url('b_book.svg');
+    background-image: url('assets/images/icons/b_book.svg');
     z-index: 3;
   }
 }
 
-.slide-recent {
-  .slide-panel-header {
-    background-color: #0097A7;
-  }
-  .slide-panel-circle-icon {
-    top: calc(50vh - 130px);
-    background-color: #00838F;
-    background-image: image-url('recent_slide.svg');
-  }
-}
-
-.slide-recent {
-  .slide-panel-category-content {
-    padding: 0px;
-    margin: 0px;
-  }
-  .slide-panel-category-item {
-    position: relative;
-    border-bottom: 1px solid #FAFAFA;
-    border-left: 5px solid transparent;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: $standard_padding*0.5;
-    padding-left: $standard_padding*2;
-  }
-  .slide-panel-category-item:hover {
-    opacity: 1;
-    background-color: $navigation_background;
-  }
-}
 
 .slide-left {
   left: 0px;

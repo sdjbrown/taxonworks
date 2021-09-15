@@ -1,10 +1,17 @@
 $font-prefix: '../../../node_modules/@ibm/plex';
 @import '../vue/assets/styles/variables/_palette.scss';
+@import '../vue/assets/styles/variables/_sizes.scss';
+@import '../vue/assets/styles/variables/_whitespace.scss';
 @import '../vue/assets/styles/variables/_exports.scss';
+@import '../vue/assets/styles/utils/functions.scss';
 @import '../vue/assets/styles/themes/themes_base.scss';
+
 @import '../vue/assets/styles/components/buttons.scss';
+@import '../vue/assets/styles/components/autocomplete.scss';
 @import '../vue/assets/styles/components/basis.scss';
 @import '../vue/assets/styles/components/dropzone.scss';
+@import '../vue/assets/styles/components/slide_panels.scss';
+@import '../vue/assets/styles/components/pinboard/pinboard_items.scss';
 @import 'node_modules/@ibm/plex/scss/ibm-plex.scss';
 @import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css';
 @import '../vue/assets/styles/filter.scss';

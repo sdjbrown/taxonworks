@@ -1,3 +1,19 @@
 @function tw-color($key: 'primary') {
-  @return map-get($scotch-colors, $key);
+  @return map-get($tw-colors, $key);
+}
+
+@function tw-input-sizes($key: 'medium') {
+  @return map-get($tw-input-sizes, $key);
+}
+
+@function tw-font-sizes($key: 'normal') {
+  @return map-get($tw-font-sizes, $key);
+}
+
+@function tw-font-weight($key: 'normal') {
+  @return map-get($tw-font-weight, $key);
+}
+
+@function tw-whitespace($key: 'medium') {
+  @return map-get($tw-whitespace, $key);
 }

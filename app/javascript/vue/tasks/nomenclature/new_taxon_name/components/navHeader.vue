@@ -3,16 +3,15 @@
     <div class="flex-separate">
       <ul class="no_bullets context-menu">
         <template
-          v-for="(link, key, index) in menu"
+          v-for="(link, key) in menu"
           :key="key">
           <li
             class="navigation-item context-menu-option"
             v-if="link">
             <a
               data-turbolinks="false"
-              :class="{ active : (activePosition == index)}"
               :href="'#' + key.toLowerCase().replace(' ','-')"
-              @click="activePosition = index">{{ key }}
+            >{{ key }}
             </a>
           </li>
         </template>
@@ -91,12 +90,6 @@ export default {
 
     parentId () {
       return this.parent?.id
-    }
-  },
-
-  data () {
-    return {
-      activePosition: 0
     }
   },
 

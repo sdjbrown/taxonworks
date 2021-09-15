@@ -7,6 +7,19 @@ $tw-input-sizes: (
   'xLarge': '40px'
 );
 
+$tw-font-sizes: (
+  tiny: '11px',
+  small: '12px',
+  normal: 13px,
+  subtitle: 14px,
+  title: 16px,
+);
+
+$tw-font-weight: (
+  light: 300,
+  normal: 400
+);
+
 :export {
   @each $key, $value in $tw-input-sizes {
     #{unquote($key)}: #{$value};

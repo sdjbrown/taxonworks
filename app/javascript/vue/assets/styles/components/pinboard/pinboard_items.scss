@@ -5,7 +5,7 @@
   }
 
   .pinboard-default-item {
-    border-left: 5px solid $color-action-button;
+    border-left: 5px solid tw-color('update');
   }
 
   .slide-panel-category-content {
@@ -47,9 +47,9 @@
     a {
       cursor: pointer;
       display: inline-block;
-      background-image: image-url('pdf.svg');
+      background-image: url('assets/images/icons/pdf.svg');
       font-size: 0px;
-      background-color: $color-secondary-2-4;
+      background-color: tw-color('primary');
     }
   }
   .itemOptions {
@@ -64,12 +64,16 @@
   }
 
   .button-pinboard-default {
-    background-image: image-url('w_ok.svg');
+    background-image: url('assets/images/icons/w_ok.svg');
     background-size: 12px;
   }
 
   .pinboard-dropdown:hover {
     background-color: white;
+
+    @include themify($themes) {
+      background-color: themed('backgroundPanelColor');
+    }
   }
 
   .pinboard-dropdown:hover .pinboard-dropdown-content {
@@ -78,17 +82,22 @@
     z-index: 9999;
     right: 0px;
     top: 0px;
-    border-left: 1px solid $navigation_background;
+    border-left: 1px solid tw-color('navigationBorder');
     height: 100%;
     align-items: center;
-    padding-left: $standard_padding * 0.5;
-    padding-right: $standard_padding * 0.5;
+    padding-left: tw-whitespace('small');
+    padding-right: tw-whitespace('small');
     background-color: #FFF;
+
+    @include themify($themes) {
+      background-color: themed('backgroundPanelColor');
+      border-left-color: themed('borderColor');
+    }
   }
   .pinboard-menu-bar {
     width: 14px;
     height: 3px;
-    background-color: $color-secondary-2-4;
+    background-color: tw-color('primary');
     margin: 2px 0;
     transition: 0.4s;
   }
@@ -96,7 +105,7 @@
   .remove {
     display: none;
     font-size: 0px;
-    background-image: image-url('w_trash.svg');
+    background-image: url('assets/images/icons/w_trash.svg');
     background-position: left, center, top 8px;
     background-repeat: no-repeat;
   }
@@ -113,12 +122,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $standard_padding*0.5;
-    padding-left: $standard_padding*2;
+    padding: tw-whitespace('small');
+    padding-left: tw-whitespace('large');
+
+    @include themify($themes) {
+      border-bottom-color: themed('borderColor');
+    }
   }
   li:hover {
     opacity: 1;
-    background-color: $navigation_background;
+    background-color: tw-color('navigationColor');
     .remove {
       display: inline-block;
     }

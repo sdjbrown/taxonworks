@@ -9,7 +9,7 @@
   border-radius: 8px;
   &:disabled {
     color: #999;
-    background-color: $color-button-disabled !important;
+    background-color: $color-button-disabled;
   }
   &:hover {
     opacity: 0.8;
