@@ -22,11 +22,7 @@ body {
       background-color: transparent
     }
 
-    table,
-    th {
-      background-color: themed('backgroundInputColor');
-      color: themed('textColor');
-    }
+
 
     button:disabled {
       background-color: themed('backgroundInputColor');
@@ -37,15 +33,19 @@ body {
       color: themed('textColor');
     }
     table {
-    .even {
-      background-color: themed('backgroundPanelColor');
+      .even {
+        background-color: themed('backgroundPanelColor');
+      }
+
+      .contextMenuCells td {
+        border-bottom-color: themed('borderColor');
+        border-left-color: themed('borderColor');
+      }
     }
 
-    .contextMenuCells td {
+    .action-line {
       border-bottom-color: themed('borderColor');
-      border-left-color: themed('borderColor');
     }
-  }
 
     #model_index {
       background-color: themed('backgroundPanelColor');

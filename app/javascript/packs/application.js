@@ -70,3 +70,7 @@ require('../vue/tasks/extracts/new_extract/main.js')
 require('../vue/tasks/namespaces/new_namespace/main.js')
 require('../vue/data/downloads/index.js')
 require('../vue/tasks/dwca_import/main.js')
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('html').classList.add('theme-dark')
+})
