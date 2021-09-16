@@ -61,14 +61,14 @@
     flex-direction: row;
     position: relative;
     margin-left: 0px; 
-    margin-top:$standard_margin; 
-    margin-right: $standard_margin;
+    margin-top: tw-whitespace('default'); 
+    margin-right: tw-whitespace('default');
     width: 420px;
     max-height: 180px;
     min-height: 160px;
     border-top-right-radius: .9rem;
     border-bottom-right-radius: .9rem;
-    background-color: #FFF;
+    background-color: tw-color('backgroundPanel');
     box-shadow: rgba(36, 37, 38, 0.08) 4px 4px 15px 0px;
     transition: transform 0.3s ease,
                 box-shadow 0.3s ease; 
@@ -110,17 +110,21 @@
   .fav-link {
     position: absolute;
     right: 14px;
-    top:$standard_margin * 0.5;
+    top: tw-whitespace('small');
   }
 
   .task_header {
     width: 34px;
     display: flex;
     position: absolute;
-    border-bottom: 1px solid $navigation_border;
-    padding: $standard_padding * 0.5;
-    padding-left: $standard_padding;
-    padding-right: $standard_padding;
+    border-bottom: 1px solid tw-color('navigationBorder');
+    padding: tw-whitespace('small');
+    padding-left: tw-whitespace('default');
+    padding-right: tw-whitespace('default');
+
+    @include themify($themes) {
+      border-bottom: 1px solid themed('borderColor');
+    }
 
     .status:first-letter {
       text-transform: uppercase;
@@ -138,39 +142,68 @@
     }
 
     .source {
-      background-image: image-url("book.svg");
+      background-image: url("assets/images/icons/book.svg");
+
+      @include themify($themes) {
+        background-image: url(themed('iconSource'));
+      }
     }
 
     .collecting_event {
-      background-image: image-url("geo_location.svg");
+      background-image: url("assets/images/icons/geolocation.svg");
+
+      @include themify($themes) {
+        background-image: url(themed('iconCollectingEvent'));
+      }
     }
 
     .biology {
-      background-image: image-url("biology.svg");
-    }
+      background-image: url("assets/images/icons/biology.svg");
 
-    .taxon_name {
-      background-image: image-url("new.svg");
+      @include themify($themes) {
+        background-image: url(themed('iconBiology'));
+      }
     }
 
     .collection_object {
-      background-image: image-url("picking.svg");
-    }
+      background-image: url("assets/images/icons/picking.svg");
 
-    .nomenclature {
-      background-image: image-url("new.svg");
+      @include themify($themes) {
+        background-image: url(themed('iconCollectionObject'));
+      }
     }
 
     .matrix {
-      background-image: image-url("matrix.svg");
+      background-image: url("assets/images/icons/matrix.svg");
+
+      @include themify($themes) {
+        background-image: url(themed('iconMatrix'));
+      }
     }
 
     .dna {
-      background-image: image-url("helix.svg");
+      background-image: url("assets/images/icons/helix.svg");
+
+      @include themify($themes) {
+        background-image: url(themed('iconDNA'));
+      }
     }
 
     .image {
-      background-image: image-url("image.svg");
+      background-image: url("assets/images/icons/image.svg");
+
+      @include themify($themes) {
+        background-image: url(themed('iconImage'));
+      }
+    }
+
+    .taxon_name,
+    .nomenclature {
+      background-image: url("assets/images/icons/new.svg");
+
+      @include themify($themes) {
+        background-image: url(themed('iconNomenclature'));
+      }
     }
 
   }
@@ -178,11 +211,11 @@
   .task_name {
     font-size: 18px;
     max-width: 330px;
-    padding: $standard_padding * 0.25; 
-    padding-left: $standard_padding; 
-    padding-top: $standard_padding; 
+    padding: tw-whitespace('small');
+    padding-left: tw-whitespace('default'); 
+    padding-top: tw-whitespace('default'); 
     a {
-      color: $color-secondary-2-4;
+      color: tw-color('link');
     }
 
   }
@@ -208,13 +241,13 @@
     font-weight: 400;
     line-height: 20px;
     max-width: 350px;
-    color: $default_text;
-    padding-left: $standard_padding * 1.4;
+    color: tw-color('textColor');
+    padding-left: tw-whitespace('medium');
   }
 
   .navigation {
     display: flex;
-    background-color: #FFF;
+    background-color: tw-color('backgroundPanel');
     box-shadow: 0px 1px 1px rgba(0,0,0,.2);
     flex-direction:row;
     justify-content:center;
@@ -262,7 +295,7 @@
     align-items: center;
 
     .task-nav-item {
-      background-color: $navigation_border;
+      background-color: tw-color('navigationBorder');
       border-radius: 2px;
       width: 15px;
       height: 15px;
@@ -270,7 +303,7 @@
       cursor: pointer;
     }
     .active {
-      background-color: $default_text;
+      background-color: tw-color('textColor');
       width: 15px;
       height: 15px;
     }
