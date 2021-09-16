@@ -37,4 +37,77 @@
       }
     }
   }
+
+
+  .filter-category-icon {
+    width: 14px;
+    height: 14px;
+    background-repeat: no-repeat;
+  }
+
+
+  .source {
+    background-image: url("assets/images/icons/book.svg");
+
+    @include themify($themes) {
+      background-image: themed('iconSource');
+    }
+  }
+
+  .collecting_event {
+    background-image: url("assets/images/icons/geolocation.svg");
+
+    @include themify($themes) {
+      background-image: themed('iconCollectingEvent');
+    }
+  }
+
+  .biology {
+    background-image: url("assets/images/icons/biology.svg");
+
+    @include themify($themes) {
+      background-image: themed('iconBiology');
+    }
+  }
+
+  .collection_object {
+    background-image: url("assets/images/icons/picking.svg");
+
+    @include themify($themes) {
+      background-image: themed('iconCollectionObject');
+    }
+  }
+
+  .matrix {
+    background-image: url("assets/images/icons/matrix.svg");
+
+    @include themify($themes) {
+      background-image: themed('iconMatrix');
+    }
+  }
+
+  .dna {
+    background-image: url("assets/images/icons/helix.svg");
+
+    @include themify($themes) {
+      background-image: themed('iconDNA');
+    }
+  }
+
+  .image {
+    background-image: url("assets/images/icons/image.svg");
+
+    @include themify($themes) {
+      background-image: themed('iconImage');
+    }
+  }
+
+  .taxon_name,
+  .nomenclature {
+    background-image: url("assets/images/icons/new.svg");
+
+    @include themify($themes) {
+      background-image: themed('iconNomenclature');
+    }
+  }
 }

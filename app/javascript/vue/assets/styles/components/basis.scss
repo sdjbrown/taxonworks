@@ -33,3 +33,9 @@ h5 {
     color: themed('textColor');
   }
 }
+
+pre {
+  @include themify($themes) {
+    background-color: themed('backgroundPanelColor');
+  }
+}

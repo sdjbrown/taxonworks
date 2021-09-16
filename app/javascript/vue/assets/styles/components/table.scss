@@ -6,7 +6,11 @@ table {
   width: auto;
   border-spacing: 0;
   background-color: tw-color('backgroundPanel');
-  border-collapse: collapse;  
+  border-collapse: collapse;
+
+  @include themify($themes) {
+    background-color: themed('backgroundPanelColor');
+  }
 
   .underlined_elements {
       border-spacing: 0; 
@@ -30,7 +34,13 @@ table {
     background-position: right tw-whitespace('default') center;
     padding-right: tw-whitespace('default');
     background-repeat: no-repeat;  
-  } 
+  }
+
+  th {
+    @include themify($themes) {
+      background-color: themed('backgroundPanelColor');
+    }
+  }
 
   .table-options {
     display: none;

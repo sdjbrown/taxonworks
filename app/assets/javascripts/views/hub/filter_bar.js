@@ -6,16 +6,24 @@ TW.workbench.hub.filter_hub = TW.workbench.hub.filter_hub || {};
 Object.assign(TW.workbench.hub.filter_hub, {
 
   init: function () {
-		if(!$("#filter").attr('icons-loaded')) { 
-			$("#filter").attr('icons-loaded', 'true');
-      $('[data-filter-category="nomenclature"]').prepend('<img src="<%= asset_path("new.svg") %>"/>');
-      $('[data-filter-category="source"]').prepend('<img src="<%= asset_path("book.svg") %>"/>');
-      $('[data-filter-category="collection_object"]').prepend('<img src="<%= asset_path("picking.svg") %>"/>');
-      $('[data-filter-category="collecting_event"]').prepend('<img src="<%= asset_path("geo_location.svg") %>"/>');
-      $('[data-filter-category="biology"]').prepend('<img src="<%= asset_path("biology.svg") %>"/>');
-      $('[data-filter-category="matrix"]').prepend('<img src="<%= asset_path("matrix.svg") %>"/>');
-      $('[data-filter-category="dna"]').prepend('<img src="<%= asset_path("helix.svg") %>"/>');
-      $('[data-filter-category="image"]').prepend('<img src="<%= asset_path("image.svg") %>"/>');
+    if (!$("#filter").attr('icons-loaded')) { 
+      const FILTER_TYPES = [...document.querySelectorAll('#filter .category-filter [data-filter-category]')]
+        .map(element =>
+          element.getAttribute('data-filter-category'))
+
+      FILTER_TYPES.forEach(type => {
+        const iconElement = document.createElement('span')
+        const categoryElement = document.querySelector(`[data-filter-category="${type}"]`)
+
+        iconElement.classList.add(
+          'margin-small-right',
+          'filter-category-icon',
+          type
+        )
+        categoryElement.prepend(iconElement);
+      })
+
+      $("#filter").attr('icons-loaded', 'true');
     }
 
     function deactivateBackgroundColorLink(selector) {
@@ -60,7 +68,7 @@ Object.assign(TW.workbench.hub.filter_hub, {
       if ($(this).is(':checked')) {
         $('.filter-category').css('display', 'flex');
         $('.filter-category').hide();
-        $('.filter-category').show("slide", {direction: "left"}, 250);
+        $('.filter-category').show("slide", { direction: "left" }, 250);
         $('.filter-category').fadeIn(250);
         $('.filter_data').each(function () {
           if ($(this).children().length > 0) {
@@ -81,7 +89,7 @@ Object.assign(TW.workbench.hub.filter_hub, {
     });
 
     function restartFilterStatus() {
-      $('.status-name').css("color", "#444");
+      $('.status-name').css("color", "");
       $('.status-name').text("Status");
     }
 
