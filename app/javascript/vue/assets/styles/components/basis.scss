@@ -18,6 +18,12 @@ hr {
   }
 }
 
+a {
+  @include themify($themes) {
+    color: themed('linkColor');
+  }
+}
+
 a:hover {
   @include themify($themes) {
     color: themed('textColor');

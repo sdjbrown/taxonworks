@@ -63,6 +63,11 @@ table {
   td {
     padding-left: tw-whitespace('default');
     padding-right: tw-whitespace('default');
+    border-bottom: 1px solid tw-color('navigationBorder');
+
+    @include themify($themes) {
+      border-bottom-color: themed('borderColor');
+    }
   }
 
   th:hover {
