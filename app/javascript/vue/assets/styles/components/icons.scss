@@ -1,0 +1,337 @@
+    [data-icon] {
+      background-size: 14px 14px;
+      background-repeat: no-repeat;
+      background-position: left, center;
+      padding-left: 20px;
+      min-height: 16px;
+      align-items: center;
+    }
+    
+    .center-icon {
+      background-position: center;
+      padding-left: initial;
+      min-height: auto;
+    }
+
+    .small-icon {
+      background-size: 12px 12px;
+      padding-left: 18px;
+      min-height: 12px;
+    }
+
+    .medium-icon {
+      background-size: 24px 24px;
+      padding-left: 24px;
+      min-height: 24px;
+    }  
+
+    .big-icon {
+      background-size: 30px 30px;
+      padding-left: 30px;
+      min-height: 30px;
+    }
+
+    .icon-without-space {
+      padding-left: 14px;
+    }  
+
+    .icon-right { 
+      background-position: right, center;
+      padding-right: 20px;
+    }
+
+    .cursor-pointer {
+      cursor: pointer;
+    }
+
+    [data-icon="biology"] {
+      background-image: url("assets/images/icons/biology.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconBiology');
+      }
+    }         
+
+    [data-icon="annotate"] {
+      background-image: url("assets/images/icons/annotate.svg");
+    } 
+
+    [data-icon="batch"] {
+      background-image: url("assets/images/icons/batch_load.svg");
+    }     
+
+    [data-icon="help"] {
+      background-image: url("assets/images/icons/help.svg");
+    }   
+
+    [data-icon="b_help"] {
+      background-image: url("assets/images/icons/b_help.svg");
+    }           
+
+    [data-icon="expand"] {
+      background-image: url("assets/images/icons/expand.svg");
+    }
+
+    [data-icon="w_expand"] {
+      background-image: url("assets/images/icons/w_expand.svg");
+    }
+
+    [data-icon="citation"] {
+      background-image: url("assets/images/icons/citation.svg");
+    }          
+
+    [data-icon="clone"] {
+      background-image: url("assets/images/icons/clone.svg");
+    } 
+
+    [data-icon="compare"] {
+      background-image: url("assets/images/icons/compare.svg");
+    }   
+
+    [data-icon="contract"] {
+      background-image: url("assets/images/icons/contract.svg");
+    }
+    
+    [data-icon="w_contract"] {
+      background-image: url("assets/images/icons/w_contract.svg");
+    }    
+
+    [data-icon="chain"] {
+      background-image: url("assets/images/icons/chain.svg");
+    }           
+
+    [data-icon="drag"] {
+      background-image: url("assets/images/icons/drag.svg");
+    }
+
+    [data-icon="link"] {
+      background-image: url("assets/images/icons/link.svg");
+    }      
+
+    [data-icon="list"] {
+      background-image: url("assets/images/icons/list.svg");
+    }         
+
+    [data-icon="scroll-v"] {
+      background-image: url("assets/images/icons/scroll-v.svg");
+    }
+
+    [data-icon="w_scroll-v"] {
+      background-image: url("assets/images/icons/w_scroll-v.svg");
+    }
+
+    [data-icon="scroll-h"] {
+      background-image: url("assets/images/icons/scroll-h.svg");
+    }         
+
+    [data-icon="browse"] {
+      background-image: url("assets/images/icons/browse.svg");
+    }     
+
+    [data-icon="download"] {
+      background-image: url("assets/images/icons/download.svg");
+    }     
+
+    [data-icon="add"] {
+      background-image: url("assets/images/icons/add.svg");
+    }
+
+    [data-icon="w_plus"] {
+      background-image: url("assets/images/icons/bplus.svg");
+    }
+
+    [data-icon="w_less"] {
+      background-image: url("assets/images/icons/w_less.svg");
+    }
+
+    [data-icon="icons"] {
+      background-image: url("assets/images/icons/icons.svg");
+    }          
+
+    [data-icon="image"] {
+      background-image: url("assets/images/icons/image.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconImage');
+      }
+    }          
+
+    [data-icon="pin"] {
+      background-image: url("assets/images/icons/pin.svg");
+    } 
+
+    [data-icon="preview"] {
+      background-image: url("assets/images/icons/preview.svg");
+    }     
+
+    [data-icon="edit"] {
+      background-image: url("assets/images/icons/new.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconNew');
+      }
+    }      
+
+    [data-icon="new"] {
+      background-image: url("assets/images/icons/new.svg");
+    }              
+
+    [data-icon="trash"] {
+      background-image: url("assets/images/icons/trash.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconTrash');
+      }
+    }      
+
+    [data-icon="favorite"] {
+      background-image: url("assets/images/icons/star.svg");
+    }      
+
+    [data-icon="arrow-right"] {
+      background-image: url("assets/images/icons/arrow-right.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconArrowRight');
+      }
+    }     
+
+    [data-icon="arrow-left"] {
+      background-image: url("assets/images/icons/arrow-left.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconArrowLeft');
+      }
+    }
+    
+    [data-icon="arrow-up"] {
+      background-image: url("assets/images/icons/arrow-up.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconArrowUp');
+      }
+    }
+
+    [data-icon="arrow-down"] {
+      background-image: url("assets/images/icons/arrow-down.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconArrowDown');
+      }
+    }
+
+    [data-icon="w-arrow-right"] {
+      background-image: url("assets/images/icons/w_arrow_right.svg");
+    }     
+
+    [data-icon="w-arrow-left"] {
+      background-image: url("assets/images/icons/w_arrow_left.svg");
+    }
+    
+    [data-icon="w-arrow-up"] {
+      background-image: url("assets/images/icons/w_arrow_up.svg");
+    }
+
+    [data-icon="w-arrow-down"] {
+      background-image: url("assets/images/icons/w_arrow_down.svg");
+    }
+
+    [data-icon="recent"] {
+      background-image: url("assets/images/icons/recent.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconRecent');
+      }
+    }        
+
+    [data-icon="reset"] {
+      background-image: url("assets/images/icons/restart.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconRestart');
+      }
+    }
+
+    [data-icon="w_reset"] {
+      background-image: url("assets/images/icons/w_restart.svg");
+    }
+    
+    [data-icon="swap"] {
+      background-image: url("assets/images/icons/swap.svg");
+    }  
+
+    [data-icon="w-swap"] {
+      background-image: url("assets/images/icons/w_swap.svg");
+    }  
+
+    [data-icon="task"] {
+      background-image: url("assets/images/icons/task.svg");
+    }            
+
+    [data-icon="data"] {
+      background-image: url("assets/images/icons/data.svg");
+    }            
+
+    [data-icon="related"] {
+      background-image: url("assets/images/icons/related.svg");
+    }                    
+
+    [data-icon="show"] {
+      background-image: url("assets/images/icons/show.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconShow');
+      }
+    }
+
+    [data-icon="hide"] {
+      background-image: url("assets/images/icons/hide.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconHide');
+      }
+    }  
+
+    [data-icon="openFolder"] {
+      background-image: url("assets/images/icons/open_folder.svg");
+    }   
+
+    [data-icon="users"] {
+      background-image: url("assets/images/icons/users.svg");
+    }       
+
+    [data-icon="folders"] {
+      background-image: url("assets/images/icons/folders.svg");
+    }  
+
+    [data-icon="options"] {
+      background-image: url("assets/images/icons/options.svg");
+    }   
+
+    [data-icon="close"] {
+      background-image: url("assets/images/icons/close.svg");
+    }
+
+    [data-icon="attention"] {
+      background-image: url("assets/images/icons/attention.svg");
+    }
+
+    [data-icon="ok"] {
+      background-image: url("assets/images/icons/ok.svg");
+    }   
+
+    [data-icon="savedb"] {
+      background-image: url("assets/images/icons/savedb.svg");
+    }
+
+    [data-icon="warning"] {
+      background-image: url("assets/images/icons/attention.svg");
+    } 
+
+    [data-icon="w_wrench"] {
+      background-image: url("assets/images/icons/w_wrench.svg");
+    }
+
+    [data-icon="blue_wrench"] {
+      background-image: url("assets/images/icons/blue_wrench.svg");
+    }

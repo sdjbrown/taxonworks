@@ -6,28 +6,6 @@ body {
     color-scheme: dark;
     color: themed('textColor');  
     background-color: themed('backgroundColor');
-
-    input[type="text"],
-    input,
-    select,
-    option,
-    textarea {
-      background-color: themed('backgroundInputColor');
-      color: themed('textColor');
-      border-color: themed('borderColor');
-    }
-
-    input[type="checkbox"] {
-      border-color: themed('borderColor');
-      background-color: transparent
-    }
-
-
-
-    button:disabled {
-      background-color: themed('backgroundInputColor');
-      color: themed('textColor');
-    }
     
     .radial-annotator {
       color: themed('textColor');

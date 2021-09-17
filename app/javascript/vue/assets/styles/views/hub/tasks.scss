@@ -235,11 +235,18 @@
       height: 15px;
       margin: 5px;
       cursor: pointer;
+
+      @include themify($themes) {
+        background-color: themed('textColor');
+      }
     }
     .active {
       background-color: tw-color('textColor');
       width: 15px;
       height: 15px;
+      @include themify($themes) {
+        background-color: themed('activeInput');
+      }
     }
   }
   @media screen and (min-height:1000px) {

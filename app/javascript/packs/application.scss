@@ -17,7 +17,11 @@ $font-prefix: '../../../node_modules/@ibm/plex';
 @import '../vue/assets/styles/components/modal.scss';
 @import '../vue/assets/styles/components/menu.scss';
 @import '../vue/assets/styles/components/spinner.scss';
+@import '../vue/assets/styles/components/icons.scss';
+@import '../vue/assets/styles/components/panels.scss';
+@import '../vue/assets/styles/components/text.scss';
 
+@import '../vue/assets/styles/views/hub/filter.scss';
 @import '../vue/assets/styles/views/hub/hub.scss';
 @import '../vue/assets/styles/views/hub/cards.scss';
 @import '../vue/assets/styles/views/hub/tasks.scss';

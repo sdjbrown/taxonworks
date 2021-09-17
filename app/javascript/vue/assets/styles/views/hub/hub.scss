@@ -38,6 +38,10 @@
     }
   }
 
+  .filter-title {
+    color: gray;
+  }
+
 
   .filter-category-icon {
     width: 14px;
@@ -107,7 +111,7 @@
     background-image: url("assets/images/icons/new.svg");
 
     @include themify($themes) {
-      background-image: themed('iconNomenclature');
+      background-image: themed('iconNew');
     }
   }
 }

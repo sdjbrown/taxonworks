@@ -1,6 +1,3 @@
-@import '../mixins/themify.scss';
-
-
 fieldset {
   @include themify($themes) {
     border-color: themed('borderColor');
@@ -43,5 +40,30 @@ h5 {
 pre {
   @include themify($themes) {
     background-color: themed('backgroundPanelColor');
+  }
+}
+
+input[type="text"],
+input,
+select,
+option,
+textarea {
+  @include themify($themes) {
+    background-color: themed('backgroundInputColor');
+    color: themed('textColor');
+    border-color: themed('borderColor');
+  }
+}
+
+input[type="checkbox"] {
+  @include themify($themes) {
+    border-color: themed('borderColor');
+  }
+}
+
+button:disabled {
+  @include themify($themes) {
+    background-color: themed('backgroundInputColor');
+    color: themed('textColor');
   }
 }

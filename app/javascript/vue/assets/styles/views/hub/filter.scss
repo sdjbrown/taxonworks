@@ -3,19 +3,19 @@
    #navigation_list { 
     flex-direction: row !important;
     align-items: flex-start !important;
-    margin-top: $standard_margin !important;
+    margin-top: tw-whitespace('default') !important;
     justify-content: flex-start !important;
   } 
 
   #filter {
     margin-top: 0px;
-    margin-right: $standard_margin; 
+    margin-right: tw-whitespace('default');
     position:relative;
 
     #search-filter {
       width: 100%;
       box-sizing: border-box;
-      background-image: image-url("search.svg");
+      background-image: url("assets/images/icons/search.svg");
       background-size: 18px;
       background-repeat: no-repeat;
       background-position: right 4px center;
@@ -24,7 +24,7 @@
 
     .navigation-controls-type  {
       .navigation-item {
-        border: 1px solid #e5e5e5;
+        border: 1px solid tw-color('navigationBorder');
         justify-content: center;
         border-right: 0px;
       }
@@ -37,7 +37,7 @@
       border: 0px;
       box-sizing: border-box;
       width: 100%;
-      padding: $standard_padding;
+      padding: tw-whitespace('default');
       justify-content: flex-start;
       border-left:4px solid transparent;
     }
@@ -49,7 +49,7 @@
       flex-direction: row;
       align-items: center;
       opacity: 0.5;
-      right:$standard_padding;
+      right: tw-whitespace('default');
     }
 
     .reset:hover {
@@ -64,7 +64,7 @@
     justify-content: flex-start;
   }
     .filter-status {
-      margin: $standard_margin;
+      margin: tw-whitespace('default');
       margin-top: 0px;
       display: flex;
       align-items: left;
@@ -73,8 +73,12 @@
     }
 
     .activated {
-      background-color: $color-complement-3;
-            opacity: 1 !important;
+      background-color: tw-color('active');
+      opacity: 1 !important;
+
+      @include themify($themes) {
+        background-color: themed('active');
+      }
     } 
     .activated.status {
       box-shadow:none !important;
@@ -123,12 +127,12 @@
       border-radius: 3px;
       height: 24px;
       align-items: center;
-      padding-left: $standard_padding * 0.25;
-      padding-right: $standard_padding * 0.25;
+      padding-left: tw-whitespace('tiny');
+      padding-right: tw-whitespace('tiny');
       margin-left: 90px;
-      border:1px solid $navigation_border;
-      background-color: $navigation_background;
-      box-shadow:inset 0px 1px 4px 0px $navigation_border; 
+      border:1px solid tw-color('navigationBorder');
+      background-color: tw-color('backgroundPanel');
+      box-shadow:inset 0px 1px 4px 0px tw-color('navigationBorder'); 
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
       .status {
@@ -163,15 +167,15 @@
       left: 4px;
       bottom: 4px;
       border-radius: 3px;
-      border:1px solid $navigation_border;
-      background-color: #FFF;
+      border:1px solid tw-color('navigationBorder');
+      background-color: tw-color('backgroundPanel');
       transition: .3s;
     }
 
     .status-name {
       z-index: 2;
       text-transform:capitalize;
-      font-size: $font_small;
+      font-size: tw-font-sizes('small');
       left:40px;
       top: -1px;
       display: flex;
@@ -183,8 +187,8 @@
       border-radius: 3px;
       border-bottom-left-radius: 0px;
       border-top-left-radius: 0px;  
-      border: 1px solid $navigation_border;
-      background-color: $color-secondary-2-1;
+      border: 1px solid tw-color('navigationBorder');
+      background-color: tw-color('backgroundPanel');
     }
 
     input:checked ~ .filter-category {
@@ -193,7 +197,7 @@
 
     input:checked + .slider:before {
       transform: translateX(16px);
-      background-color: $color-complement-2;
+      background-color: tw-color('active');
     }
 
     .switch {
@@ -205,15 +209,15 @@
       border-radius: 3px;
       border-bottom-right-radius: 0px;
       border-top-right-radius: 0px;
-      border:1px solid $navigation_border;
+      border:1px solid tw-color('navigationBorder');
       border-right: 0px;    
-      background-color: $navigation_background;
-      box-shadow:inset 0px 1px 4px 0px $navigation_border; 
+      background-color: tw-color('backgroundColor'); 
+      box-shadow:inset 0px 1px 4px 0px tw-color('navigationBorder'); 
     }  
   }
 
   .status {
-    box-shadow: 0 0 3px 0 $navigation_border;
+    box-shadow: 0 0 3px 0 tw-color('navigationBorder');
     border-radius: 50%;
     font-size: 0px;
     width: 12px;
@@ -243,4 +247,48 @@
     border:0.5px solid #27aa35;
     background-color: #35c94a;
   }
+}
+
+
+.filter {
+  position: relative;
+  .active {
+    background-color: tw-color('active');
+    opacity: 1 !important;
+
+    @include themify($themes) {
+      border-bottom-color: themed('active');
+    }
+  }
+
+  .open {
+    position: absolute;
+    left: calc(50% - 24px);
+    bottom: -24px;
+    background-image: url('assets/images/icons/w_show.svg');
+    background-color: tw-color('primary');
+    background-size: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 40px;
+    border-radius: 0px 0px 30px 30px;
+    height: 20px;
+    margin-top: -1px;
+    transform-origin: 50% 0%;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease;
+  }
+
+}
+
+[data-filter-slide] {
+  z-index: 5;
+}
+
+[data-filter-slide="down"] {
+  display: block;
+}
+
+[data-filter-slide="close"] {
+  display: none;
 }
