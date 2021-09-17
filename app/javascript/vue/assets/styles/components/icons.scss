@@ -54,6 +54,10 @@
 
     [data-icon="annotate"] {
       background-image: url("assets/images/icons/annotate.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconAnnotate');
+      }
     } 
 
     [data-icon="batch"] {
@@ -110,6 +114,10 @@
 
     [data-icon="list"] {
       background-image: url("assets/images/icons/list.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconList');
+      }
     }         
 
     [data-icon="scroll-v"] {
@@ -130,10 +138,18 @@
 
     [data-icon="download"] {
       background-image: url("assets/images/icons/download.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconDownload');
+      }
     }     
 
     [data-icon="add"] {
       background-image: url("assets/images/icons/add.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconAdd');
+      }
     }
 
     [data-icon="w_plus"] {
@@ -174,6 +190,10 @@
 
     [data-icon="new"] {
       background-image: url("assets/images/icons/new.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconNew');
+      }
     }              
 
     [data-icon="trash"] {
@@ -266,10 +286,18 @@
 
     [data-icon="task"] {
       background-image: url("assets/images/icons/task.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconTask');
+      }
     }            
 
     [data-icon="data"] {
       background-image: url("assets/images/icons/data.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconData');
+      }
     }            
 
     [data-icon="related"] {
@@ -294,6 +322,10 @@
 
     [data-icon="openFolder"] {
       background-image: url("assets/images/icons/open_folder.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconOpenFolder');
+      }
     }   
 
     [data-icon="users"] {
@@ -302,10 +334,18 @@
 
     [data-icon="folders"] {
       background-image: url("assets/images/icons/folders.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconFolders');
+      }
     }  
 
     [data-icon="options"] {
       background-image: url("assets/images/icons/options.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconOptions');
+      }
     }   
 
     [data-icon="close"] {

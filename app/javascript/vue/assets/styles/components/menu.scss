@@ -75,6 +75,10 @@
     background-image: url("assets/images/icons/arrow-down.svg");
     background-position: 95%,center;
     background-repeat: no-repeat;
+
+    @include themify($themes) {
+      background-image: themed('iconArrowDown');
+    }
   }
 
   .menu-drop:hover {
