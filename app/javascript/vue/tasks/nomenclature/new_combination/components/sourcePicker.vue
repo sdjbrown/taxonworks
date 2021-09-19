@@ -1,7 +1,8 @@
 <template>
   <div class="new-combination-citation">
     <h3>Citation</h3>
-    <div class="flex-separate middle">
+    <fieldset class="flex-separate middle">
+      <legend>Source</legend>
       <template v-if="title">
         <a
           :href="`/sources/${origin_citation.source.id}/edit`"
@@ -41,7 +42,7 @@
           </template>
         </smart-selector>
       </template>
-    </div>
+    </fieldset>
   </div>
 </template>
 <script>

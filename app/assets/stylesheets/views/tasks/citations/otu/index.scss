@@ -49,14 +49,12 @@
     font-size: 14px;
   }
   #source-picker, #otu-picker {
-    border-bottom: 1px solid $navigation_border;
     button {
       width: 100px;
     }
   }
   .title {
     padding-left: 2em;
-    border-bottom: 1px solid $navigation_border;
     height: 60px;
   }
   .slide-panel {
@@ -65,9 +63,6 @@
     z-index: 100;
     .slide-panel-header {
       font-weight: 500;
-      color: #42b983;
-      background-color: #FFF;
-      border-bottom: 1px solid $navigation_border;
       padding-right: $standard_padding;
     }
     .slide-panel-category-item:hover {
@@ -84,8 +79,5 @@
       background-size: 20px 20px;
       background-image: image-url('trash.svg');
     }
-  }
-  #delete-citation:hover {
-
   }
 }

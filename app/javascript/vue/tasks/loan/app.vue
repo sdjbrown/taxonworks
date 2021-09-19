@@ -75,15 +75,6 @@ export default {
     margin: 0 auto;
     margin-top: 1em;
     max-width: 1240px;
-
-    hr {
-      height: 1px;
-      color: #f5f5f5;
-      background: #f5f5f5;
-      font-size: 0;
-      margin: 15px;
-      border: 0;
-    }
   }
 
 </style>

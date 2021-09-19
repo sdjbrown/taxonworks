@@ -1,26 +1,25 @@
 <template>
   <div class="new-combination-rank-list">
-    <div class="header">
-      <h3 class="flex-separate">
-        <span class="capitalize">{{ rankName }}</span>
-      </h3>
-    </div>
+    <h3 class="flex-separate">
+      <span class="capitalize">{{ rankName }}</span>
+    </h3>
     <ul>
       <li
         class="no_bullets horizontal-left-content"
-        v-for="taxon in inOrder(list)">
+        v-for="taxon in inOrder(list)"
+        :key="taxon.id">
         <span
           class="new-combination-rank-list-taxon-name"
           v-html="taxon.object_tag"/>
-          <div class="horizontal-left-content separate-left">
-            <radial-annotator 
-              type="annotator"
-              :global-id="taxon.global_id"/>
-            <a
-              target="_blank"
-              :href="`/tasks/nomenclature/new_taxon_name/${taxon.id}`"
-              class="circle-button btn-edit"/>
-          </div>
+        <div class="horizontal-left-content separate-left">
+          <radial-annotator 
+            type="annotator"
+            :global-id="taxon.global_id"/>
+          <a
+            target="_blank"
+            :href="`/tasks/nomenclature/new_taxon_name/${taxon.id}`"
+            class="circle-button btn-edit"/>
+        </div>
       </li>
     </ul>
   </div>
@@ -30,9 +29,8 @@
 import RadialAnnotator from 'components/radials/annotator/annotator.vue'
 
 export default {
-  components: {
-    RadialAnnotator
-  },
+  components: { RadialAnnotator },
+
   props: {
     list: {
       type: Array,
@@ -43,6 +41,7 @@ export default {
       required: true
     }
   },
+
   methods: {
     inOrder (list) {
       const newOrder = list.slice(0)
@@ -56,17 +55,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-  .new-combination-rank-list {
-    transition: all 0.5 ease;
-    display: flex;
-    flex-direction: column;
-    .header {
-      padding: 1em;
-      border-bottom: 1px solid #f5f5f5;
-      h3 {
-        font-weight: 300;
-      }
-    }
-  }
-</style>

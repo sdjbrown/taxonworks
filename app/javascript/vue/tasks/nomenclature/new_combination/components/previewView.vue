@@ -1,5 +1,5 @@
 <template>
-  <div class="new-combination-preview header">
+  <div class="new-combination-preview">
     <h3
       class="horizontal-center-content"
       v-if="combination">
@@ -35,6 +35,7 @@
         />
       </tippy>
     </h3>
+    <hr>
   </div>
 </template>
 <script>
@@ -102,16 +103,5 @@ export default {
    position: absolute;
    right: 12px;
  }
-}
-.header {
-  align-items: center;
-  h3 {
-   font-weight: 300;
- }
- padding: 1em;
- padding-left: 1.5em;
- border-left: none;
-
- border-bottom: 1px solid #f5f5f5;
 }
 </style>

@@ -54,6 +54,10 @@
 
   .active {
     background-color: tw-color('navigationBorder');
+
+    @include themify($themes) {
+      background-color: themed('hover');
+    }
   }
 
 }

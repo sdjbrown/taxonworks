@@ -9,16 +9,14 @@
       legend="Searching taxon names..."
       :legend-style="{ fontSize: '14px', color: '#444', textAlign: 'center', paddingTop: '20px'}"
       v-if="searching"/>
-    <div
-      class="panel new-combination-box separate-bottom"
-      v-if="Object.keys(rankLists).length">
-      <div
-        class="header flex-separate middle"
-        :class="{ 'header-warning': !(rankLists['genus'] && rankLists['genus'].length) }">
+    <block-layout
+      v-if="Object.keys(rankLists).length"
+      :warning="!(rankLists['genus'] && rankLists['genus'].length)">
+      <template #header>
         <h3>Combination</h3>
-      </div>
+      </template>
 
-      <div>
+      <template #body>
         <div v-if="!isCombinationEmpty()">
           <preview-view
             @onVerbatimChange="newCombination.verbatim_name = $event"
@@ -45,47 +43,46 @@
           </template>
         </div>
         <hr>
-        <div class="content">
-          <source-picker
-            :citation="newCombination['origin_citation']"
-            @select="setSource"/>
-        </div>
 
-        <div class="content">
-          <save-combination
-            @success="reset()"
-            @processing="saving = $event"
-            @save="setSavedCombination($event)"
-            ref="saveButton"
-            :new-combination="newCombination"/>
-          <button
-            class="normal-input button button-default margin-small-left"
-            @click="expandAll()"
-            tabindex="-1"
-            type="button"><span data-icon="reset">Unlock</span>
-          </button>
-        </div>
-      </div>
-    </div>
+        <source-picker
+          class="margin-medium-bottom"
+          :citation="newCombination['origin_citation']"
+          @select="setSource"/>
 
-    <div
-      class="panel new-combination-box separate-top"
-      v-if="existMatches">
-      <div
-        class="header flex-separate middle">
-        <h3>Other matches</h3>
-      </div>
-      <div class="flexbox">
-        <template
-          v-for="(list, key) in otherMatches"
-          :key="key">
-          <match-group
-            v-if="list.length"
-            :rank-name="key"
-            :list="list"/>
-        </template>
-      </div>
-    </div>
+        <save-combination
+          @success="reset()"
+          @processing="saving = $event"
+          @save="setSavedCombination($event)"
+          ref="saveButton"
+          :new-combination="newCombination"/>
+        <button
+          class="normal-input button button-default margin-small-left"
+          @click="expandAll()"
+          tabindex="-1"
+          type="button">
+          <span data-icon="reset">Unlock</span>
+        </button>
+
+        <div
+          class="panel new-combination-box separate-top"
+          v-if="existMatches">
+          <div
+            class="flex-separate middle">
+            <h3>Other matches</h3>
+          </div>
+          <div class="flexbox">
+            <template
+              v-for="(list, key) in otherMatches"
+              :key="key">
+              <match-group
+                v-if="list.length"
+                :rank-name="key"
+                :list="list"/>
+            </template>
+          </div>
+        </div>
+      </template>
+    </block-layout>
   </div>
 </template>
 
@@ -97,6 +94,7 @@ import PreviewView from './previewView.vue'
 import SourcePicker from './sourcePicker.vue'
 import Spinner from 'components/spinner.vue'
 import MatchGroup from './matchGroup.vue'
+import BlockLayout from 'components/layout/BlockLayout.vue'
 import { Combination, TaxonName } from 'routes/endpoints'
 
 export default {
@@ -106,7 +104,8 @@ export default {
     SourcePicker,
     SaveCombination,
     PreviewView,
-    Spinner
+    Spinner,
+    BlockLayout
   },
   props: {
     taxonName: {
@@ -268,28 +267,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-  .create-new-combination {
-    min-width: 100px;
-  }
-  .header {
-    padding: 1em;
-    padding-left: 1.5em;
-    border-bottom: 1px solid #f5f5f5;
-    border-left:4px solid green;
-    h3 {
-      font-weight: 300;
-    }
-  }
-  .header-warning {
-    border-left: 4px solid #ff8c00 !important;
-  }
-  hr {
-    height: 1px;
-    color: #f5f5f5;
-    background: #f5f5f5;
-    font-size: 0;
-    margin: 15px;
-    border: 0;
-  }
-</style>

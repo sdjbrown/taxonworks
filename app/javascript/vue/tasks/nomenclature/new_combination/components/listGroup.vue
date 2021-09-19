@@ -1,19 +1,19 @@
 <template>
   <div class="new-combination-rank-list">
-    <div class="header">
-      <h3 class="flex-separate">
-        <span class="capitalize">{{ rankName }}</span>
-      </h3>
-    </div>
+    <h3 class="flex-separate">
+      <span class="capitalize">{{ rankName }}</span>
+    </h3>
     <template v-if="list.length">
-      <template v-if="expanded">
-        <ul>
+      <div
+        v-if="expanded"
+        class="margin-medium-bottom">
+        <ul class="no_bullets">
           <li
-            class="no_bullets"
-            v-for="taxon in inOrder(list)">
+            v-for="taxon in inOrder(list)"
+            :key="taxon.id">
             <label
               class="middle new-combination-rank-list-label"
-              @mousedown="rankChoose = taxon" >
+              @mousedown="rankChoose = taxon">
               <input
                 ref="rankRadio"
                 :name="`new-combination-rank-list-${rankName}`"
@@ -37,9 +37,9 @@
             </label>
           </li>
         </ul>
-      </template>
+      </div>
       <div
-        class="maxheight content middle item"
+        class="maxheight middle item"
         v-else>
         <h3 v-if="selected">
           <b><span v-html="selected.original_combination"/> <span class="disabled"> ({{ selected.rank }})</span></b>
@@ -47,7 +47,7 @@
       </div>
     </template>
     <template v-else>
-      <div class="maxheight content middle item">
+      <div class="maxheight middle item">
         <h3 v-if="selected">
           <b><span v-html="selected.original_combination"/> <span class="disabled"> ({{ selected.rank }})</span></b>
         </h3>
@@ -234,19 +234,11 @@ export default {
     transition: all 0.5 ease;
     display: flex;
     flex-direction: column;
-    .header {
-      padding: 1em;
-      border-bottom: 1px solid #f5f5f5;
-      h3 {
-        font-weight: 300;
-      }
-    }
+
     .maxheight {
       flex:1
     }
-    .search-combination-field {
-      margin-left: 1em;
-    }
+
     .new-combination-rank-list-label {
       display: flex !important;
       cursor: pointer;

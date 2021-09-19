@@ -8,7 +8,7 @@
       v-if="anchor"
       :name="anchor"
       class="anchor"/>
-    <div 
+    <div
       class="header flex-separate middle"
       :class="{ 'validation-warning': warning }">
       <slot name="header">
@@ -70,8 +70,13 @@ export default {
 </script>
 <style lang="scss">
 .block-layout {
-  border-top-left-radius: 0px;
+  border-top-left-radius: 0px !important;
   transition: all 1s;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
   .validation-warning {
     border-left: 4px solid #ff8c00 !important;
   }
@@ -79,24 +84,24 @@ export default {
     min-width: 100px;
   }
 
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   .header {
-    border-left:4px solid green;
+    border-left: 4px solid green;
     h3 {
-    font-weight: 300;
+      font-weight: 300;
+      margin: 0px;
+    }
+    padding: 1.5em 0;
+    padding-left: 1.5em;
+    padding-right: 1em;
+    border-bottom: 1px solid #f5f5f5;
   }
-  padding: 1em;
-  padding-left: 1.5em;
-  border-bottom: 1px solid #f5f5f5;
-  }
+
   .body {
     padding: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
   }
+
   .taxonName-input,#error_explanation {
     width: 300px;
   }

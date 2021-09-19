@@ -1,7 +1,7 @@
 <template>
   <div class="horizontal-left-content">
     <input
-      class="big-input"
+      class="big-input full_width"
       @input="processString(type)"
       type="text"
       ref="search"
@@ -95,10 +95,6 @@ export default {
 </script>
 
 <style scoped>
-input {
-  width: 100%;
-  min-width: 400px;
-}
 button {
   width: 100px;
 }

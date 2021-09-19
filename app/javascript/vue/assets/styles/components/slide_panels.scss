@@ -45,7 +45,6 @@ $default-padding: 2em;
     color: #FFF;
     align-items: center;
     padding-left: tw-whitespace('default');
-    background-color: $header-color;
   }
 
   .slide-panel-category-item {
@@ -135,6 +134,10 @@ $default-padding: 2em;
 }
 
 .slide-pinboard {
+  .slide-panel-header {
+    background-color: #00796B;
+  }
+  
   .empty-message {
     width: 100%;
     top: calc(50vh - 65px);

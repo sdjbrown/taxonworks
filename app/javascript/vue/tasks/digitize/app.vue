@@ -153,14 +153,6 @@ export default {
 </script>
 <style lang="scss">
   #vue-all-in-one {
-    hr {
-        height: 1px;
-        color: #f5f5f5;
-        background: #f5f5f5;
-        font-size: 0;
-        margin: 15px;
-        border: 0;
-    }
     .modal-container {
       width: 90vw;
     }

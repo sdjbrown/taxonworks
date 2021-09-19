@@ -74,6 +74,10 @@
 
     [data-icon="expand"] {
       background-image: url("assets/images/icons/expand.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconExpand');
+      }
     }
 
     [data-icon="w_expand"] {
@@ -94,6 +98,10 @@
 
     [data-icon="contract"] {
       background-image: url("assets/images/icons/contract.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconContract');
+      }
     }
     
     [data-icon="w_contract"] {
