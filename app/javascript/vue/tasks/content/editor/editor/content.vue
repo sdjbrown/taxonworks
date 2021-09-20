@@ -66,15 +66,18 @@
         </div>
       </div>
     </div>
-    <div class="flex-separate menu-content-editor">
-      <div
-        class="item flex-wrap-column middle menu-item menu-button"
-        @click="update"
-        :class="{ saving : autosave }">
-        <span
-          data-icon="savedb"
-          class="big-icon"/>
-        <span class="tiny_space">Save</span>
+    <div class="menu-content-editor">
+      <div class="item menu-item">
+        <button
+          type="button"
+          @click="update"
+          class="item flex-wrap-column middle menu-button"
+          :class="{ saving : autosave }">
+          <span
+            data-icon="savedb"
+            class="big-icon"/>
+          <span class="tiny_space">Save</span>
+        </button>
       </div>
       <clone-content
         :class="{ disabled : !content }"
@@ -83,23 +86,30 @@
       <compare-content
         class="item menu-item"
         @showCompareContent="showCompare"/>
-      <div
-        class="item flex-wrap-column middle menu-item menu-button"
-        @click="ChangeStateCitations()"
-        :class="{ active : activeCitations, disabled : citations < 1 }">
-        <span
-          data-icon="citation"
-          class="big-icon"/>
-        <span class="tiny_space">Citation</span>
+      <div class="item menu-item">
+        <button
+          type="button"
+          class="item flex-wrap-column middle menu-button"
+          @click="ChangeStateCitations()"
+          :disabled="citations < 1"
+        >
+          <span
+            data-icon="citation"
+            class="big-icon"/>
+          <span class="tiny_space">Citation</span>
+        </button>
       </div>
-      <div
-        class="item flex-wrap-column middle menu-item menu-button"
-        @click="ChangeStateFigures()"
-        :class="{ active : activeFigures, disabled : !content }">
-        <span
-          data-icon="new"
-          class="big-icon"/>
-        <span class="tiny_space">Figure</span>
+      <div class="item menu-item">
+        <button
+          type="button"
+          class="item flex-wrap-column middle menu-button"
+          @click="ChangeStateFigures()"
+          :disabled="!content">
+          <span
+            data-icon="new"
+            class="big-icon"/>
+          <span class="tiny_space">Figure</span>
+        </button>
       </div>
     </div>
   </div>

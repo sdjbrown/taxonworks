@@ -1,18 +1,19 @@
 <template>
-  <div>
+  <div class="panel content">
+    <h3>Collection object attributes</h3>
     <fieldset>
       <legend>New object attributes</legend>
       <div class="separate-bottom">
         <label>Total</label>
-        <input 
+        <input
           type="number"
           v-model="collectionObject.total">
       </div>
     </fieldset>
     <repository-component/>
     <preparation-type/>
-    <taxon-determination class="separate-top"/>
   </div>
+  <taxon-determination class="panel content"/>
 </template>
 
 <script>

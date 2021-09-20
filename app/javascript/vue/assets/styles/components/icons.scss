@@ -86,14 +86,26 @@
 
     [data-icon="citation"] {
       background-image: url("assets/images/icons/citation.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconCitation');
+      }
     }          
 
     [data-icon="clone"] {
       background-image: url("assets/images/icons/clone.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconClone');
+      }
     } 
 
     [data-icon="compare"] {
       background-image: url("assets/images/icons/compare.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconCompare');
+      }
     }   
 
     [data-icon="contract"] {
@@ -370,6 +382,10 @@
 
     [data-icon="savedb"] {
       background-image: url("assets/images/icons/savedb.svg");
+
+      @include themify($themes) {
+        background-image: themed('iconSaveDB');
+      }
     }
 
     [data-icon="warning"] {

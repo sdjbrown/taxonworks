@@ -25,3 +25,27 @@
     border-width: 0 1px;
   }
 }
+
+.EasyMDEContainer {
+  @include themify($themes) {
+    .editor-toolbar {
+      border-color: themed('borderColor');
+    }
+
+    .editor-preview {
+      background-color: themed('backgroundInputColor');
+    }
+
+    .fa {
+      color: themed('textColor');
+    }
+  }
+}
+
+.CodeMirror {
+  @include themify($themes) {
+    background-color: themed('backgroundInputColor');
+    color: themed('textColor');
+    border-color: themed('borderColor');
+  }
+}

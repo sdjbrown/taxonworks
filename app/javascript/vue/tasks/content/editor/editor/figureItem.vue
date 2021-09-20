@@ -1,16 +1,34 @@
 <template>
   <div
-    class="figures-container"
+    class="figures-container panel"
     :class="{ 'card-handle' : !edit }">
     <div class="figures-header">
       <img :src="depiction.image.image_file_url">
-      <div
-        class="button-delete circle-button figures-delete"
-        @click="deleteDepiction()"/>
-      <div
-        :class="{ 'button-submit' : edit, 'button-default' : !edit }"
-        class="circle-button figures-edit"
-        @click="editChange()"/>
+      <v-btn
+        class="figures-delete"
+        circle
+        medium
+        color="destroy"
+        @click="deleteDepiction()"
+      >
+        <v-icon
+          name="trash"
+          x-small
+        />
+      </v-btn>
+
+      <v-btn
+        class="figures-edit "
+        circle
+        medium
+        :color="edit ? 'update' : 'primary'"
+        @click="editChange()"
+      >
+        <v-icon
+          name="pencil"
+          x-small
+        />
+      </v-btn>
       <input
         class="figures-label horizontal-center-content middle"
         v-if="edit"
@@ -36,9 +54,16 @@
 
 import { MutationNames } from '../store/mutations/mutations'
 import { Depiction } from 'routes/endpoints'
+import VBtn from 'components/ui/VBtn/index.vue'
+import VIcon from 'components/ui/VIcon/index.vue'
 
 export default {
   name: 'FigureItem',
+
+  components: {
+    VBtn,
+    VIcon
+  },
 
   props: {
     figure: {

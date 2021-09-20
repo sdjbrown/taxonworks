@@ -13,7 +13,7 @@
         @click="resetStore">Reset
       </span>
     </div>
-    <div class="panel content separate-bottom">
+    <div class="panel content">
       <image-dropzone
         v-model="images"
         @delete="removeImage"

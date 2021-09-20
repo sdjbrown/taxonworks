@@ -1,13 +1,15 @@
 <template>
-  <div :class="{ disabled : !content || contents.length < 1}">
-    <div
+  <div>
+    <button
+      type="button"
       class="item flex-wrap-column middle menu-button"
+      :disabled="!content || contents.length < 1"
       @click="showModal = contents.length > 0">
       <span
         data-icon="compare"
         class="big-icon"/>
       <span class="tiny_space">Compare</span>
-    </div>
+    </button>
     <modal
       v-if="showModal"
       id="compare-modal"

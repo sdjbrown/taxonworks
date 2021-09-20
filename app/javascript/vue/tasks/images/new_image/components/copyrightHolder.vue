@@ -96,10 +96,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-  .switch-radio {
-    label {
-      width: 100%;
-    }
-  }
-</style>

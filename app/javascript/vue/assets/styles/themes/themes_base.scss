@@ -46,27 +46,6 @@ body {
       box-shadow: themed('boxShadowButton');
     }
 
-    .EasyMDEContainer {
-
-      .editor-toolbar {
-        border-color: themed('borderColor');
-      }
-
-      .editor-preview {
-        background-color: themed('backgroundInputColor');
-      }
-
-      .CodeMirror {
-        background-color: themed('backgroundInputColor');
-        color: themed('textColor');
-        border-color: themed('borderColor');
-      }
-
-      .fa {
-        color: themed('textColor');
-      }
-    }
-
     .table-entrys-list li {
       border-top-color: themed('borderColor');
     }

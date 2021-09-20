@@ -2,7 +2,7 @@
   width: 100%;
 }
 table {
-  box-shadow: 0 0 2px 0 tw-color('navigationBorder');
+  // box-shadow: 0 0 2px 0 tw-color('navigationBorder');
   width: auto;
   border-spacing: 0;
   background-color: tw-color('backgroundPanel');
@@ -86,7 +86,7 @@ table {
     padding-right: tw-whitespace('default');
     font-weight: 500;
     font-size: 12px;
-    border-bottom: 2px solid tw-color('navigationBorder');
+    border-bottom: 4px solid tw-color('navigationBorder');
     text-align: left;
     a {
       img {

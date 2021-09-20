@@ -33,9 +33,11 @@
         </p>
       </div>
       <switch-component
+        class="margin-medium-bottom"
         v-model="view"
-        :options="tabs"/>
-      <div class="separate-top">
+        :options="tabs"
+      />
+      <div>
         <autocomplete
           v-if="view == 'Advanced'"
           :array-list="objectLists.allList"

@@ -19,7 +19,6 @@
         @getId="setSource"
       />
     </div>
-    <hr>
     <div v-if="citation">
       <div class="flex-separate middle">
         <p>

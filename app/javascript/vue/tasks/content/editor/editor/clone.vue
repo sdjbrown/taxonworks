@@ -1,14 +1,16 @@
 <template>
-  <div :class="{ disabled : contents.length == 0 }">
-    <div
+  <div>
+    <button
       @click="showModal = contents.length > 0"
-      class="item flex-wrap-column middle menu-button">
+      type="button"
+      class="item flex-wrap-column middle menu-button"
+      :disabled="contents.length == 0">
       <span
         data-icon="clone"
         class="big-icon"
       />
       <span class="tiny_space">Clone</span>
-    </div>
+    </button>
     <modal
       v-if="showModal"
       id="clone-modal"

@@ -42,9 +42,10 @@
           </div>
         </div>
       </div>
-      <div class="margin-large-top separate-bottom horizontal-left-content align-start">
+      <div class="panels-container co-layout">
         <new-object/>
-        <div class="full_width separate-left">
+        <div class="full_width panel content">
+          <h3>Annotations</h3>
           <tags-component class="panel-section"/>
           <data-attributes class="panel-section separate-top"/>
         </div>
@@ -187,5 +188,11 @@ export default {
     justify-content: center;
     border: 2px solid #F5F5F5;
     border-radius: 3px;
+  }
+
+  .co-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
   }
 </style>

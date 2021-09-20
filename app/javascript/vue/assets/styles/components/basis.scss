@@ -1,6 +1,7 @@
 fieldset {
   @include themify($themes) {
     border-color: themed('borderColor');
+    background-color: themed('backgroundPanelColor');
   }
 }
 

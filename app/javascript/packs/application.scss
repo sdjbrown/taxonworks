@@ -26,12 +26,14 @@ $font-prefix: '../../../node_modules/@ibm/plex';
 @import '../vue/assets/styles/components/icons.scss';
 @import '../vue/assets/styles/components/panels.scss';
 @import '../vue/assets/styles/components/text.scss';
+@import '../vue/assets/styles/components/switch.scss';
 
 @import '../vue/assets/styles/views/hub/filter.scss';
 @import '../vue/assets/styles/views/hub/hub.scss';
 @import '../vue/assets/styles/views/hub/cards.scss';
 @import '../vue/assets/styles/views/hub/tasks.scss';
 @import '../vue/assets/styles/views/sessions/login.scss';
+@import '../vue/assets/styles/views/tasks/content/editor/index.scss';
 
 @import '../vue/assets/styles/filter.scss';
 @import '../vue/assets/styles/labels.scss';

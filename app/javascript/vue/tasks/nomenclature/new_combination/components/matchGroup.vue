@@ -1,18 +1,16 @@
 <template>
-  <div class="new-combination-rank-list">
-    <h3 class="flex-separate">
-      <span class="capitalize">{{ rankName }}</span>
-    </h3>
+  <div>
+    <span class="capitalize">{{ rankLabel }}</span>
     <ul>
       <li
-        class="no_bullets horizontal-left-content"
+        class="horizontal-left-content"
         v-for="taxon in inOrder(list)"
         :key="taxon.id">
         <span
           class="new-combination-rank-list-taxon-name"
           v-html="taxon.object_tag"/>
         <div class="horizontal-left-content separate-left">
-          <radial-annotator 
+          <radial-annotator
             type="annotator"
             :global-id="taxon.global_id"/>
           <a
@@ -36,9 +34,18 @@ export default {
       type: Array,
       required: true
     },
+
     rankName: {
       type: String,
       required: true
+    }
+  },
+
+  computed: {
+    rankLabel () {
+      return typeof this.rankName === 'string'
+        ? this.rankName.replace(/[_]/gm, ' ')
+        : this.rankName
     }
   },
 

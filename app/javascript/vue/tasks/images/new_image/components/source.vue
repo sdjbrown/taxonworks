@@ -1,23 +1,21 @@
 <template>
   <div class="panel content panel-section">
     <h2>Source</h2>
-    <div class="flex-separate align-start">
-      <div>
-        <smart-selector
-          class="separate-bottom"
-          model="sources"
-          klass="Depiction"
-          @selected="setSource"/>
-        <template v-if="source">
-          <hr>
-          <div class="middle">
-            <span v-html="source.object_tag"/>
-            <span
-              @click="removeSource"
-              class="circle-button button-default btn-undo"/>
-          </div>
-        </template>
-      </div>
+    <div>
+      <smart-selector
+        class="margin-medium-bottom"
+        model="sources"
+        klass="Depiction"
+        @selected="setSource"/>
+      <template v-if="source">
+        <hr>
+        <div class="middle">
+          <span v-html="source.object_tag"/>
+          <span
+            @click="removeSource"
+            class="circle-button button-default btn-undo"/>
+        </div>
+      </template>
     </div>
   </div>
 </template>

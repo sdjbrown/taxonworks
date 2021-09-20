@@ -1,7 +1,7 @@
 <template>
   <div class="image-container">
     <dropzone
-      class="dropzone-card separate-bottom"
+      class="dropzone-card"
       @vdropzone-success="success"
       ref="image"
       url="/images"

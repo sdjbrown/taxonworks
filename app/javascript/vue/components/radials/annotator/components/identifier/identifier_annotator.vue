@@ -264,11 +264,6 @@ export default {
     .modal-list-item {
       margin-top: 6px;
     }
-    .switch-radio {
-      label {
-        width: 100%;
-      }
-    }
   }
 }
 </style>
