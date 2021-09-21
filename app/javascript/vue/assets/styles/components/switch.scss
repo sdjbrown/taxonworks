@@ -1,11 +1,6 @@
 .switch-radio {
   display: flex;
   overflow: hidden;
-  border-bottom: 1px solid tw-color('navigationBorder');
-
-  @include themify($themes) {
-    border-bottom: 1px solid themed('borderColor');
-  }
 
   .switch-title {
     margin-bottom: 6px;
@@ -32,13 +27,18 @@
     padding: 6px 14px;
     transition: all 0.1s ease-in-out;
     width: 100%;
-    border-bottom: 4px solid transparent;
+    border-bottom: 1px solid tw-color('navigationBorder');
     font-weight: tw-font-weight('medium');
     font-size: tw-font-sizes('small');
+    border-top-left-radius: 0.9em;
+    border-top-right-radius: 0.9em;
+    border-top: 4px solid transparent;
 
     @include themify($themes) {
       color: themed('textColor');
+      border-bottom-color: themed('borderColor');
     }
+  
   }
 
   label:hover {
@@ -53,11 +53,17 @@
   input:checked + label {
 
     color: tw-color('primary');
-    border-bottom: 4px solid tw-color('primary');
+    border: 1px solid tw-color('navigationBorder');
+    border-width: 1px 1px 0 1px;
+    border-top: 4px solid tw-color('primary');
+    padding-bottom: 2px;
+    background-color: tw-color('active');
 
     @include themify($themes) {
       color: themed('active');
+      border-color: themed('borderColor');
       border-bottom-color: themed('active');
+      background-color: themed('activeInput');
     }
   }
 
