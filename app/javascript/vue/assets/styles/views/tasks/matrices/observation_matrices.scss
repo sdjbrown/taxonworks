@@ -28,22 +28,20 @@
   height: calc(100vh - 220px);
   max-height: calc(100vh - 220px);
 
-  .header-bar {
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid #CCCCCC;
-    background-color: white;
-  }
-
   .i3-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    background-color: #CCCCCC;
+    background-color: tw-color('backgroundPanel');
     grid-gap: 1px;
+
+    @include themify($themes) {
+      //background-color: themed('backgroundPanelColor');
+    }
   }
+
   .grid-icon {
     width: 20px;
     height: 12px;
@@ -51,9 +49,14 @@
     background-color: transparent;
     grid-gap: 2px;
   }
+
   .grid-item {
-    background-color: white;
+    background-color: tw-color('backgroundPanel');
     overflow: scroll;
+
+    @include themify($themes) {
+      background-color: themed('backgroundPanelColor');
+    }
   }
   
   .layout-mode-1 {
