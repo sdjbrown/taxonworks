@@ -37,9 +37,9 @@
         </div>
       </div>
     </nav-bar-component>
-    <div class="horizontal-left-content align-start">
-      <div class="width-30">
-        <div class="horizontal-left-content panel-section separate-right align-start">
+    <div class="new-asserted-distribution-grid">
+      <div>
+        <div class="horizontal-left-content panel-section align-start">
           <source-component
             v-model="asserted_distribution"
             ref="sourceComponent"
@@ -57,7 +57,7 @@
           </ul>
         </p>
       </div>
-      <div class="horizontal-left-content separate-bottom separate-left separate-right align-start width-40">
+      <div class="horizontal-left-content separate-bottom separate-right align-start">
         <otu-component
           class="separate-right full_width"
           ref="otuComponent"
@@ -66,9 +66,9 @@
           class="margin-medium-top"
           v-model="locks.otu"/>
       </div>
-      <div class="horizontal-left-content separate-left align-start width-30">
+      <div class="horizontal-left-content align-start">
         <geographic-area
-          class="separate-right full_width"
+          class="full_width"
           ref="geoComponent"
           @selected="triggerAutosave"
           v-model="asserted_distribution"/>
@@ -278,3 +278,11 @@ export default {
   }
 }
 </script>
+<style>
+
+.new-asserted-distribution-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1em;
+}
+</style>

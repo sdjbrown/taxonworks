@@ -10,6 +10,7 @@
         pin-section="Sources"
         pin-type="Source"
         v-model="source"
+        shorten="75"
       />
       <v-lock
         class="margin-small-left"
