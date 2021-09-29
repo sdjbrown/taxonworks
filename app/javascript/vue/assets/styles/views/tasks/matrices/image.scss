@@ -1,0 +1,50 @@
+#vue-matrix-image {
+  .observation-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: tw-color('backgroundPanel');
+    @include themify($themes) {
+      background-color: themed('backgroundPanelColor');
+    }
+  }
+
+  .otu-cell {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: tw-color('backgroundPanel');
+    @include themify($themes) {
+      background-color: themed('backgroundPanelColor');
+    }
+  }
+
+  .header-label {
+    transform: rotate(-30deg);
+    position: absolute;
+    transform-origin: 0 0;
+    width: 150px;
+    bottom: 0;
+    left: 0;
+  }
+
+  .edit-cell {
+    justify-content: start;
+  }
+
+  .header-cell {
+    position: relative;
+    text-align: left;
+  }
+
+  .otu_tag_taxon_name {
+    white-space: normal
+  }
+
+  .ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

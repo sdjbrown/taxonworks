@@ -278,11 +278,6 @@ export default {
     padding-top: 0.5em;
   }
 
-  .dropzone-card {
-    min-height: 100px !important;
-    height: 100px;
-  }
-
   :deep(.dz-message) {
     margin: 1em 0 !important;
     font-size: 16px !important;
