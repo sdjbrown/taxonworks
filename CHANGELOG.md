@@ -8,16 +8,22 @@ This project <em>does not yet</em> adheres to [Semantic Versioning](https://semv
 ## [unreleased]
 
 ### Added
-- Added project_source as a preferred for source autocomplete
-- Added soft validation of cached values with fix.
+- Rake task to rebuild source cached
+- New .csl styl 'taxonworks.csl' used as the default style for displaying sources
+- New specs for rendering Source citations
+- `&extend[]` and `&embed[]` helper methods for REST responses [#2532]
+- Soft validation of cached values with fix {@proceps FOR WHAT}
 - Custom .csl support for BibTeX reference formating (see .csl styles at bottom of select list). New .cls submitted via issue tracker and integrated to source.
 - New .csl style 'world_chalcidoidea_book.csl"
 - Verbatim value handling (use "{your value}")  for fields otherwise processed in BibTeX sources (e.g. author)
 - Soft_validation fix. Objective synonyms should share the same type.
+- Add `Download`, `Full size` and `Radial navigation` buttons in Image viewer [#2423]
 
 ### Fixed
-- match combination when protonym have synonym relationship [#2525]
-- method update [#2504]
+- Add missing original citation to synonym names in CoLDP export [#2543] 
+- Uniquify people slow when many roles present [#2528]
+- Match combination when protonym has synonym relationships [#2525]
+- TaxonNameRelationsip `type_method` returns nil properly on unmatched types [#2504]
 - Taxon determinations list in comprehensive task
 - The clone button doesn't trigger update taxon name after authors were cloned [#2513]
 - Georeference count in new collecting event task [#2519]
@@ -25,8 +31,16 @@ This project <em>does not yet</em> adheres to [Semantic Versioning](https://semv
 - Geographic area counts as georeference. Soft validations are sometimes loaded before saving georeferences [#2519]
 - `import_dataset_id` parameter persist on after resetState in DwC Importer [#2529]
 - Updated Ruby gems and Node packages
+- In project button [#2530]
+- View image matrix is passing wrong ids [#2537]
+- Observations with depictions sometimes are removed after move a depiction [#2549]
 
 ### Changed
+- Tweak geo coordinate matching on verbatim labels
+- Year suffix, stated year, language, translated title and notes added to bibliography rendering via `to_citeproc`
+- Removed `label_html` from `/people` responses
+- `/people` JSON param from `&include_roles=true` to `&extend[]=roles` 
+- Prefer project sources in source autocomplete
 - Status name 'not for nomenclature' changed to 'not in published work'
 - Year letter is no longer appended to year in BibTeX exports
 - Include project's name in CoLDP exports filename [#2509]
@@ -34,6 +48,9 @@ This project <em>does not yet</em> adheres to [Semantic Versioning](https://semv
 - Upgraded gnfinder gem that makes use of new REST API
 - Refactor help code, replaced jQuery for js vanilla
 
+[#2543]: https://github.com/SpeciesFileGroup/taxonworks/issues/2543
+[#2532]: https://github.com/SpeciesFileGroup/taxonworks/issues/2532
+[#2528]: https://github.com/SpeciesFileGroup/taxonworks/issues/2528
 [#2084]: https://github.com/SpeciesFileGroup/taxonworks/issues/2084
 [#1943]: https://github.com/SpeciesFileGroup/taxonworks/issues/1943
 [#2509]: https://github.com/SpeciesFileGroup/taxonworks/issues/2509
@@ -42,6 +59,9 @@ This project <em>does not yet</em> adheres to [Semantic Versioning](https://semv
 [#2523]: https://github.com/SpeciesFileGroup/taxonworks/pull/2523
 [#2519]: https://github.com/SpeciesFileGroup/taxonworks/pull/2519
 [#2529]: https://github.com/SpeciesFileGroup/taxonworks/pull/2529
+[#2530]: https://github.com/SpeciesFileGroup/taxonworks/pull/2530
+[#2549]: https://github.com/SpeciesFileGroup/taxonworks/pull/2549
+[#2423]: https://github.com/SpeciesFileGroup/taxonworks/pull/2523
 
 ## [0.19.7] - 2021-09-09
 
