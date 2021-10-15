@@ -680,12 +680,6 @@ class Source::Bibtex < Source
     cached_nomenclature_date.year
   end
 
-  #  Month handling allows values from bibtex like 'may' to be handled
-  # @return [Time]
-  def nomenclature_date
-    Utilities::Dates.nomenclature_date(day, Utilities::Dates.month_index(month), year)
-  end
-
   # @return [Date || Time] <sigh>
   #  An memoizer, getter for cached_nomenclature_date, computes if not .persisted?
   def cached_nomenclature_date
@@ -905,14 +899,6 @@ class Source::Bibtex < Source
   def get_cached
     if errors.empty?
       c = cached_string('html') # preserves our convention of <i>
-
-      if bibtex_type == 'book' && !pages.blank?
-        if pages.to_i.to_s == pages
-          c = c + " #{pages} pp."
-        else
-          c = c + " #{pages}"
-        end
-      end
       return c
     end
     nil

@@ -78,7 +78,10 @@
         <div
           class="box-spinner__legend"
           :style="legendStyle">
-          <h3 v-if="showLegend">{{ legend }}</h3>
+          <span
+            v-if="showLegend"
+            v-html="legend"
+          />
           <slot/>
         </div>
       </div>
