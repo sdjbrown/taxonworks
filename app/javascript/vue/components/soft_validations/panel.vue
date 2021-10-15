@@ -1,80 +1,78 @@
 <template>
   <div
-    v-if="validationSections.length"
-    class="panel">
-    <div class="content soft-validation-box validation-warning">
-      <div class="soft-validation-box__header flex-separate">
-        <h3>Soft Validation</h3>
-      </div>
-      <div
-        class="body overflow-y-auto">
-        <template
-          v-for="(section, index) in validationSections"
-          :key="index">
-          <div>
-            <h3>
-              <span v-if="section.title">{{ section.title }}</span>
-              <button
-                v-if="getFixPresent(section.list).length"
-                type="button"
-                class="button button-submit margin-small-left"
-                @click="runFix(getFixPresent(section.list))">
-                <span>Fix all</span>
-              </button>
-            </h3>
-            <ul
-              v-for="list in section.list"
-              class="no_bullets">
-              <li
-                class="horizontal-left-content align-start"
-                v-for="(error, index) in list.soft_validations"
-                :key="index">
-                <tippy
-                  animation="scale"
-                  placement="bottom"
-                  size="small"
-                  inertia
-                  arrow
-                  :content="error.description">
-                  <span data-icon="warning"/>
-                </tippy>
+    v-if="validationSections.length" 
+    class="panel content soft-validation-box validation-warning">
+    <div class="soft-validation-box__header flex-separate">
+      <h3>Soft Validation</h3>
+    </div>
+    <div
+      class="body overflow-y-auto">
+      <template
+        v-for="(section, index) in validationSections"
+        :key="index">
+        <div>
+          <h3>
+            <span v-if="section.title">{{ section.title }}</span>
+            <button
+              v-if="getFixPresent(section.list).length"
+              type="button"
+              class="button button-submit margin-small-left"
+              @click="runFix(getFixPresent(section.list))">
+              <span>Fix all</span>
+            </button>
+          </h3>
+          <ul
+            v-for="list in section.list"
+            class="no_bullets">
+            <li
+              class="horizontal-left-content align-start"
+              v-for="(error, index) in list.soft_validations"
+              :key="index">
+              <tippy
+                animation="scale"
+                placement="bottom"
+                size="small"
+                inertia
+                arrow
+                :content="error.description">
+                <span data-icon="warning"/>
+              </tippy>
+              <span>
+                <button
+                  v-if="error.fixable"
+                  type="button"
+                  class="button button-submit"
+                  @click="runFix([{ global_id: list.instance.global_id, only_methods: [error.soft_validation_method] }])">
+                  Fix
+                </button>
                 <span>
-                  <button
-                    v-if="error.fixable"
-                    type="button"
-                    class="button button-submit"
-                    @click="runFix([{ global_id: list.instance.global_id, only_methods: [error.soft_validation_method] }])">
-                    Fix
-                  </button>
-                  <span>
-                    <span v-html="error.message" />
-                    <template
-                      v-for="(resolution, rIndex) in error.resolution"
-                      :key="rIndex">
-                      <tippy
-                        class="d-inline-block"
-                        animation="scale"
-                        placement="bottom"
-                        size="small"
-                        inertia
-                        arrow
-                        content="Fixable here (may leave page)">
-                        <a :href="resolution">
-                          <span
-                            class="small-icon icon-without-space"
-                            data-icon="blue_wrench"
-                          />
-                        </a>
-                      </tippy>
-                    </template>
-                  </span>
+                  <span v-html="error.message" />
+                  <template
+                    v-for="(resolution, rIndex) in error.resolution"
+                    :key="rIndex">
+                    <tippy
+                      class="d-inline-block"
+                      animation="scale"
+                      placement="bottom"
+                      size="small"
+                      inertia
+                      arrow
+                      content="Fixable here (may leave page)">
+                      <a :href="resolution">
+                        <span
+                          class="small-icon icon-without-space"
+                          data-icon="blue_wrench"
+                        />
+                      </a>
+                    </tippy>
+                  </template>
                 </span>
-              </li>
-            </ul>
-            <hr v-if="index !== (validationSections.length-1)">
-          </div>
-        </template>
-      </div>
+              </span>
+            </li>
+          </ul>
+          <hr v-if="index !== (validationSections.length-1)">
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -133,7 +131,7 @@ export default {
 }
 
 .soft-validation-box {
-  background-color: #FFF9F9;
+  background-color: #FFF9F9 !important;
 
   .body {
     padding: 12px;
@@ -154,7 +152,7 @@ export default {
   }
 
   @include themify($themes) {
-    background-color: themed('backgroundPanelColor');
+    background-color: themed('backgroundPanelColor') !important;
   }
 }
 
