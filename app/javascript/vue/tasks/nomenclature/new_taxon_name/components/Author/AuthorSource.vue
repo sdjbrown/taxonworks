@@ -24,7 +24,7 @@
         <p>
           <span
             target="_blank"
-            v-html="citation.source.object_tag"
+            v-html="citation.source.cached"
           />
           <soft-validation
             :validate-object="citation"
