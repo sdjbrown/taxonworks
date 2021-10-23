@@ -10,8 +10,7 @@
       @close="setModalView(false)"
       :container-style="{
         width: '700px',
-        maxHeight: '80vh',
-        overflow: 'scroll'
+        maxHeight: '80vh'
       }">
       <template #header>
         <h3>Settings</h3>

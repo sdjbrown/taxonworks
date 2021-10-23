@@ -30,22 +30,24 @@
           <td>
             <span> {{ item.geographic_area.parent.name }} </span>
           </td>
-          <td class="vue-table-options">
-            <citation-count
-              :object="item"
-              :values="item.citations"
-              target="asserted_distributions"
-            />
-            <radial-annotator :global-id="item.global_id" />
-            <span
-              class="circle-button btn-edit"
-              @click="$emit('edit', Object.assign({}, item))"
-            />
-            <span
-              class="circle-button btn-delete"
-              @click="deleteItem(item)"
-            >Remove
-            </span>
+          <td>
+            <div class="vue-table-options">
+              <citation-count
+                :object="item"
+                :values="item.citations"
+                target="asserted_distributions"
+              />
+              <radial-annotator :global-id="item.global_id" />
+              <span
+                class="circle-button btn-edit"
+                @click="$emit('edit', Object.assign({}, item))"
+              />
+              <span
+                class="circle-button btn-delete"
+                @click="deleteItem(item)"
+              >Remove
+              </span>
+            </div>
           </td>
         </tr>
       </transition-group>

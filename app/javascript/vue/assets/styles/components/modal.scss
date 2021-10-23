@@ -16,7 +16,6 @@
 }
 
 .modal-container {
-  position: relative;
   width: 300px;
   margin: 0px auto;
   padding: 20px 30px;
@@ -26,7 +25,6 @@
   transition: all .3s ease;
   font-family: IBM Plex Sans, Helvetica, Arial, sans-serif;
   max-height: 90vh;
-  overflow-y: auto;
 
   @include themify($themes) {
     background-color: themed('backgroundPanelColor');
@@ -108,7 +106,6 @@
       box-shadow: none;
 
       .modal-body {
-        overflow: auto;
         margin-right: 1em;
         max-height: 80vh;
         &::-webkit-scrollbar {

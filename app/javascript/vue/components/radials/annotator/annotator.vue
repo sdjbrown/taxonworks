@@ -474,8 +474,7 @@ export default {
       display: flex;
       height: 600px;
       flex-direction: column;
-      overflow-y: scroll;
-      position: relative;
+      overflow-y: auto;
     }
 
     .radial-annotator-inner-modal {

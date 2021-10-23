@@ -1,7 +1,5 @@
 .vue-autocomplete-input {
-  z-index: 2000;
   padding: 0px;
-  position: static;
   padding-left: 1em*0.9;
   border-radius: 2px;
   border: 1px solid tw-colors('inputBorder');
@@ -19,16 +17,19 @@
 }
 
 .vue-autocomplete {
+  position: relative;
+
   ul {
+    position: absolute;
+    top: 100%;
     max-height: 500px;
-    overflow-y: scroll;
+    overflow-y: auto;
     z-index: 2001;
     display: none;
     background-color: #FAFAFA;
     margin: 0px;
     padding: 0px;
     list-style: none;
-    position: absolute;
     min-width: 300px;
     border: 1px solid tw-color('navigationBorder');
     box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);

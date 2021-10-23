@@ -240,7 +240,7 @@ export default {
   .radial-annotator {
     .biological_relationships_annotator {
       position: relative;
-      overflow-y: scroll;
+      overflow-y: auto;
 
       .pages {
         width: 86px;
