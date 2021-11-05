@@ -37,12 +37,21 @@ class ImportDataset::DarwinCore::Checklist < ImportDataset::DarwinCore
 
     parse_results_ary = Biodiversity::Parser.parse_ary(records[:core].map { |r| r['scientificName'] || '' })
 
+    parse_results_ary.each do |result|
+      if result['scientificNameAuthorship'].present?
+        result[:parsed_authorship] = Biodiversity::Parser.parse('Aus ' + record['scientificNameAuthorship'])[:authorship]
+      end
+
+      result[:parsed_authorship] ||= result[:authorship]
+    end
+
     # hash of taxonID, record metadata
-    records_lut = { }
+    records_lut = {}
+    original_comb_lut = {}
 
     # hash of row index, record metadata
     core_records = records[:core].each_with_index.map do |record, index|
-      records_lut[record['taxonID']] = {
+      hsh = {
         index: index,
         type: nil, # will be protonym or combination
         dependencies: [],
@@ -58,6 +67,15 @@ class ImportDataset::DarwinCore::Checklist < ImportDataset::DarwinCore
         parent: record['parentNameUsageID'],
         src_data: record
       }
+      parsed_authorship = parse_results_ary.dig(index, :parsed_authorship)
+
+      stemmed_epithets = parse_results_ary.dig(index, :canonical, :stemmed)&.split&.[](1..)
+      unless stemmed_epithets.blank? || parsed_authorship.nil? || parsed_authorship[:normalized].starts_with?('(')
+        key = parsed_authorship[:originalAuth].values_at(*%i{authors year})
+        original_comb_lut[key] = hsh unless key.first.empty?
+      end
+
+      records_lut[record['taxonID']] = hsh
     end
 
     # PROCESS OVERVIEW
@@ -79,22 +97,32 @@ class ImportDataset::DarwinCore::Checklist < ImportDataset::DarwinCore
     original_combination_groups = { }
 
     core_records.each_with_index do |record, index|
+      original_name_usage_id = record[:src_data]['originalNameUsageID']
+      if original_name_usage_id.blank?
+        authorship_normalized = parse_results_ary.dig(index, :authorship, :normalized)
+        parsed_authorship = parse_results_ary.dig(index, :parsed_authorship)
 
-      # TODO handle when originalNameUsageID is not present
-
-      if record[:src_data]['originalNameUsageID'].blank?
-        add_error_message(record, :originalNameUsageID, 'originalNameUsageID must not be blank')
+        if authorship_normalized&.starts_with?('(') && parsed_authorship
+          # Attempt to reconstruct from potential original combination names in the checklist (authorships without parens)
+          key = parse_results_ary.dig(index, :canonical, :stemmed)&.split&.[](1..)&.concat(parsed_authorship[:originalAuth].values_at(*%i{authors year}))
+          original_name_usage_id = original_comb_lut.dig(key, :src_data, 'taxonID')
+        elsif authorship_normalized
+          original_name_usage_id = record[:src_data]['taxonID']
+        end
       end
 
-      if records_lut[record[:src_data]['originalNameUsageID']].nil?
-        add_error_message(record, :originalNameUsageID, 'originalNameUsageID not found in dataset')
-        next
+      if original_name_usage_id 
+        if records_lut[original_name_usage_id].nil?
+          add_error_message(record, :originalNameUsageID, 'originalNameUsageID not found in dataset')
+        else
+          oc_index = records_lut[original_name_usage_id][:index]
+
+          original_combination_groups[oc_index] ||= []
+          original_combination_groups[oc_index] << index
+        end
+      else
+        add_error_message(record, :originalNameUsageID, 'originalNameUsageID could not be determined')
       end
-      oc_index = records_lut[record[:src_data]['originalNameUsageID']][:index]
-
-      original_combination_groups[oc_index] ||= []
-      original_combination_groups[oc_index] << index
-
     end
 
     current_taxonomic_status = Set['valid', 'homonym', 'synonym', 'excluded', 'unidentifiable', 'unavailable'].freeze

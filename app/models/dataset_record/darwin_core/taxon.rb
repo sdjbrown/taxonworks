@@ -94,7 +94,7 @@ class DatasetRecord::DarwinCore::Taxon < DatasetRecord::DarwinCore
               scientificNameAuthorship: get_field_value('scientificNameAuthorship'),
               taxonRank: get_field_value('taxonRank'),
               metadata: metadata
-            })
+            }.to_json)
 
           end
 
@@ -173,7 +173,7 @@ class DatasetRecord::DarwinCore::Taxon < DatasetRecord::DarwinCore
             end
 
             # if taxonomicStatus is a homonym, invalid, unavailable, excluded, create the status
-          elsif get_field_value(:taxonomicStatus) != 'valid' || get_field_value(:taxonomicStatus).nil?
+          elsif ['valid', 'accepted'].exclude?(get_field_value(:taxonomicStatus)&.downcase) || get_field_value(:taxonomicStatus).nil?
             status_types = {
               invalid: 'TaxonNameClassification::Iczn::Available::Invalid',
               unavailable: 'TaxonNameClassification::Iczn::Unavailable',
