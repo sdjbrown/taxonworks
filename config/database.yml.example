@@ -20,6 +20,16 @@ test:
   username: taxonworks_development 
   password:
 #  host: db
+entiminae: 
+  adapter: postgis
+  encoding: utf8 
+  postgis_extension: true
+  pool: 5
+  database: entiminae
+  username: taxonworks_development 
+  password:
+#  host: db
+
 
 
 
