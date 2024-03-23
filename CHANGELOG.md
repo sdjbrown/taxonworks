@@ -9,8 +9,64 @@ This project <em>does not yet</em> adheres to [Semantic Versioning](https://semv
 
 ### Added
 
+- Batch add/remove sources to project from Source filter [#3888]
+- OTU name to Filter CO result [#3861]
+- New model, FieldOccurrence [#1643]
+- New key task, add edit "traditional" keys [#1691]
+- New OTU task
+- New "Week in review" task, visualize records added and navigate to them in filter context
+- Add taxon name autocomplete to Type specimen facet
+- DwC Dashboard: Use the same DwC download of collection object filter task
+- DwC-A Workbench: Add pagination for created imports
+- Clone mode on image matrix
+- Radial CO: Add preparation type slice [#3889]
+- Radial mass navigation [#3672]
+
+### Changed
+
+- Filter images: Remove quick forms for Depictions [#3869]
+- New image task: Add alert when trying to restart the interface without applying changes
+- New CE: Destroy label when print label input is empty [#3878]
+- Updated Ruby gems
+
+### Fixed
+
+- Rediculous number of identifiers preventing collecting event editing [#3715]
+- Community-based models not showing AlternateValues [#3883]
+- Browse OTUs: headers do not link to correct panel [#3868]
+- DwC-A importer crashing on hybrid formula scientific names
+- Crash when georeferencing with zero meters of uncertainty
+- New CE: Custom attributes don't refresh on new/edit CE [#3874]
+- Radial quick forms: Asserted distribution screen partially blocked by a white rectangle [#3891]
+
+[#1643]: https://github.com/SpeciesFileGroup/taxonworks/issues/1643
+[#1691]: https://github.com/SpeciesFileGroup/taxonworks/issues/1691
+[#3672]: https://github.com/SpeciesFileGroup/taxonworks/issues/3672
+[#3715]: https://github.com/SpeciesFileGroup/taxonworks/issues/3715
+[#3861]: https://github.com/SpeciesFileGroup/taxonworks/issues/3861
+[#3868]: https://github.com/SpeciesFileGroup/taxonworks/issues/3868
+[#3869]: https://github.com/SpeciesFileGroup/taxonworks/issues/3869
+[#3878]: https://github.com/SpeciesFileGroup/taxonworks/issues/3878
+[#3883]: https://github.com/SpeciesFileGroup/taxonworks/issues/3883
+[#3888]: https://github.com/SpeciesFileGroup/taxonworks/issues/3888
+[#3889]: https://github.com/SpeciesFileGroup/taxonworks/issues/3889
+[#3891]: https://github.com/SpeciesFileGroup/taxonworks/issues/3891
+
+### Fixed
+
+- Handling of [sic] in Protonym#original_combination_infraspecific_element [#3867]
+
+## [0.39.0] - 2024-03-01
+
+### Added
+
+- Project vocabulary task [#864]
+- Global identifier classes for Web of Science and Zoological Record [#3853]
+- `/api/v1/biological_associations/simple.csv` endpoint
 - Return a png of any image via `/api/v1/images/:id/scale_to_box(/:x/:y/:width/:height/:box_width/:box_height)` [#3852]
 - `content_type` and `original_png` attributes to `/api/v1//images/123` [#3852]
+- Ability to extend housekeeping on some filters to check changes on related models [#3851]
+- Some new soft validations on Misspellings
 
 ### Fixed
 
@@ -19,10 +75,20 @@ This project <em>does not yet</em> adheres to [Semantic Versioning](https://semv
 - Quick Forms: Content slice doesn't display contents [#3850]
 - Browse OTU: Load preferences
 - New loan task: reset button doesn't work [#3856]
+- New image task doesn't create citations without attributions
+- Missing pagination headers for 4 endpoints [#3859]
 
+### Changed
+
+- Allow omitting seconds in non-interval ISO-8601 date times in DwC importer.
+
+[#864]: https://github.com/SpeciesFileGroup/taxonworks/issues/864
+[#3853]: https://github.com/SpeciesFileGroup/taxonworks/issues/3853
+[#3851]: https://github.com/SpeciesFileGroup/taxonworks/issues/3851
 [#3852]: https://github.com/SpeciesFileGroup/taxonworks/issues/3852
 [#3850]: https://github.com/SpeciesFileGroup/taxonworks/issues/3850
 [#3856]: https://github.com/SpeciesFileGroup/taxonworks/issues/3856
+[#3859]: https://github.com/SpeciesFileGroup/taxonworks/issues/3859
 
 ## [0.38.3] - 2024-02-25
 
@@ -4360,7 +4426,9 @@ This project <em>does not yet</em> adheres to [Semantic Versioning](https://semv
 - Loosing input page numbers when switching tabs on New Taxon Name task
 
 [#1532]: https://github.com/SpeciesFileGroup/taxonworks/issues/1532
-[unreleased]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.38.2...development
+[unreleased]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.39.0...development
+[0.39.0]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.38.3...v0.39.0
+[0.38.3]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.38.2...v0.38.3
 [0.38.2]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.38.1...v0.38.2
 [0.38.1]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.38.0...v0.38.1
 [0.38.0]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.37.1...v0.38.0
