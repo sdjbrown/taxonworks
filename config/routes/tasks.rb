@@ -1,5 +1,9 @@
 scope :tasks do
   scope :leads do
+    scope :hub, controller: 'tasks/leads/hub' do
+      get '/', action: :index, as: 'leads_hub_task'
+    end
+
     scope :show, controller: 'tasks/leads/show' do
       get '/', action: :index, as: 'show_lead_task'
     end
@@ -13,6 +17,7 @@ scope :tasks do
     scope :vocabulary do
       scope :project_vocabulary, controller: 'tasks/metadata/vocabulary/project_vocabulary' do
         get '/', action: :index, as: 'project_vocabulary_task'
+        get :data_models, defaults: {format: :json}
       end
     end
   end
