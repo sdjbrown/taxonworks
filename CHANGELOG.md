@@ -7,7 +7,155 @@ This project <em>does not yet</em> adheres to [Semantic Versioning](https://semv
 
 ## [unreleased]
 
-_Special thanks to Tom Klein for his amazing open-source contributions on this release!.
+### Fixed
+
+- PDF Button is missing in Filter Sources
+
+## [0.41.0] - 2024-05-02
+
+### Added
+
+- Field synchronizer task- batch edit (regex too), update and syncronize columns and between columns
+- `misspelling` option to API `taxon_name_relationship_set[]`
+
+### Changed
+
+- Gemfile update
+- Improvements(?) to Collecting Event level classifier [#3821]
+
+### Fixed
+
+- Asynchronous batch updates on individual objects
+- Invisible edges in biological associations graph viz
+- PDF button is available for all document types [#3933]
+
+[#3821]: https://github.com/SpeciesFileGroup/taxonworks/issues/3821
+[#3933]: https://github.com/SpeciesFileGroup/taxonworks/issues/3833
+
+## [0.40.6] - 2024-04-30
+
+### Changed
+
+- Updated Ruby gems
+
+### Fixed
+
+- Notes params not applied in Source filters (anywhere) [#3927]
+- OTU autocomplete raises when no taxon names match
+- Moving from Source to Image filter failed to return cited images
+- CSD: Catalog number panel displays warning messages when the namespace is set
+
+[#3927]: https://github.com/SpeciesFileGroup/taxonworks/issues/3927
+
+## [0.40.5] - 2024-04-25
+
+### Added
+
+- `/api/v1/taxon_name_relationships.csv` endpoint
+
+### Changed
+
+- Dwca `otu_name` only includes Otu#name, never anything else.
+- `api/v1/otus/autocomplete` now more acurately returns the label of the matching term, i.e. Combinations are supported in rendering [https://github.com/SpeciesFileGroup/taxonpages/issues/193]
+- Update Ruby gems
+
+### Fixed
+
+- Quick forms: Lock buttons don't work on Biological associations.
+- Week in review task [#3926]
+- Missing Image metadata breaks radial
+- Basic endemism task had a broken link out
+- Prevent raise on bad polygon (LinearRing) Georeferences
+
+[#3926]: https://github.com/SpeciesFileGroup/taxonworks/issues/3926
+
+## [0.40.4] - 2024-04-21
+
+### Added
+
+- User estimated time tracking at the per-project level
+- Orphaned DwcOccurrence and DelayedJob job metadata to admin Health report
+
+### Changed
+
+- Unified some methods on dwca export, refactored for speedups and memory
+- Updated Ruby gems
+
+### Fixed
+
+- Dwca error from missmatched ids leading to bad sorts
+- Manage controlled vocabulary task: New button resets type [#3923]
+- Resource is spelled recource [#3922]
+
+[#3922]: https://github.com/SpeciesFileGroup/taxonworks/issues/3922
+[#3923]: https://github.com/SpeciesFileGroup/taxonworks/issues/3923
+
+## [0.40.3] - 2024-04-14
+
+### Changed
+
+- Browse OTU: Replace descendants endpoint for the same used on TaxonPages. Now this panel is available for all ranks
+- Bundle/gem update
+
+### Fixed
+
+- 2 issues with taxon names autocomplete (internal and api/v1)
+- Memoization in dwca export
+
+## [0.40.2] - 2024-04-09
+
+### Added
+
+- "Venn" factets to filter- logical operations on filter results [#3908]
+- Sort column on project vocabulary task [#3915]
+
+### Fixed
+
+- `/data_attributes/brief` not scoped to project
+- New collecting event: It tries to save the label even if it is empty
+- Spatial summary return to filter with empty cached level fields [#3907]
+- Comprehensive form: Sometimes Attributes are not cleaned when new collection object is created [#3910]
+- DwC importer crashing when uploading files with CSV extension.
+- DwC importer not honouring field and string delimiters when processing headers
+- DwC importing wrongly allowing unreadable files to be staged
+
+### Changed
+
+- Updated Ruby gems.
+
+[#3908]: https://github.com/SpeciesFileGroup/taxonworks/issues/3908
+[#3907]: https://github.com/SpeciesFileGroup/taxonworks/issues/3907
+[#3910]: https://github.com/SpeciesFileGroup/taxonworks/issues/3910
+[#3915]: https://github.com/SpeciesFileGroup/taxonworks/issues/3915
+
+## [0.40.1] - 2024-04-02
+
+### Added
+
+- Some more quality-of-life changes to Leads/keys
+- Spatial summary report for CollectingEvent filter
+- Geographic Area radial navigator links to associated filters
+- Radial nomenclature: verbatim_author slice [#3896]
+
+### Changed
+
+- Gems updated
+
+### Fixed
+
+- Async batch update calls on individual objects failing [#3905]
+- DwC export without CollectingEvents failing [#3897]
+- Cloning CollectingEvents sets creator to the person who cloned the record
+- Filter Staged Images missing filter button [#3901]
+
+[#3905]: https://github.com/SpeciesFileGroup/taxonworks/issues/3905
+[#3897]: https://github.com/SpeciesFileGroup/taxonworks/issues/3897
+[#3896]: https://github.com/SpeciesFileGroup/taxonworks/issues/3896
+[#3901]: https://github.com/SpeciesFileGroup/taxonworks/issues/3901
+
+## [0.40.0] - 2024-03-26
+
+_Special thanks to Tom Klein for his amazing open-source contributions on this release!._
 
 ### Added
 
@@ -25,9 +173,10 @@ _Special thanks to Tom Klein for his amazing open-source contributions on this r
 - Radial CO: Add preparation type slice [#3889]
 - Radial mass navigation [#3672]
 - Batch update or add data attributes [#3748]
-- !! TODO: Include OTU name in filter collection objects result [#XXXX]
+- Include OTU `name` in Filter Collection Objects result
 - Text file delimiter options to DwC import [#3894]
 - CSV format for DwC importer
+- Project vocabulary word-cloud text links to filter result for some models (e.g. CollectingEvent)
 
 ### Changed
 
@@ -51,7 +200,6 @@ _Special thanks to Tom Klein for his amazing open-source contributions on this r
 - Print label task doesn't apply styles to labels [#3776]
 - Missing collection object links on map markers
 
-
 [#3748]: https://github.com/SpeciesFileGroup/taxonworks/issues/3748
 [#3881]: https://github.com/SpeciesFileGroup/taxonworks/issues/3881
 [#2909]: https://github.com/SpeciesFileGroup/taxonworks/issues/2909
@@ -69,10 +217,6 @@ _Special thanks to Tom Klein for his amazing open-source contributions on this r
 [#3889]: https://github.com/SpeciesFileGroup/taxonworks/issues/3889
 [#3891]: https://github.com/SpeciesFileGroup/taxonworks/issues/3891
 [#3894]: https://github.com/SpeciesFileGroup/taxonworks/issues/3894
-
-### Fixed
-
-- Handling of [sic] in Protonym#original_combination_infraspecific_element [#3867]
 
 ## [0.39.0] - 2024-03-01
 
@@ -4444,7 +4588,15 @@ _Special thanks to Tom Klein for his amazing open-source contributions on this r
 - Loosing input page numbers when switching tabs on New Taxon Name task
 
 [#1532]: https://github.com/SpeciesFileGroup/taxonworks/issues/1532
-[unreleased]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.39.0...development
+[unreleased]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.41.0..development
+[0.41.0]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.40.6...v0.41.0
+[0.40.6]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.40.5...v0.40.6
+[0.40.5]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.40.4...v0.40.5
+[0.40.4]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.40.3...v0.40.4
+[0.40.3]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.40.2...v0.40.3
+[0.40.2]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.40.1...v0.40.2
+[0.40.1]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.40.0...v0.40.1
+[0.40.0]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.39.0...v0.40.0
 [0.39.0]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.38.3...v0.39.0
 [0.38.3]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.38.2...v0.38.3
 [0.38.2]: https://github.com/SpeciesFileGroup/taxonworks/compare/v0.38.1...v0.38.2

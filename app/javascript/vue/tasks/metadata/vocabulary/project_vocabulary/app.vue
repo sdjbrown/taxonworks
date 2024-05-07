@@ -20,13 +20,18 @@
           Show records
         </VBtn>
       </div>
+      <PanelLinks
+        v-if="words.length"
+        :model="parameters.model"
+        :attribute="parameters.attribute"
+      />
       <div
         v-if="words.length"
         class="overflow-y-auto"
       >
         <TableWords
           class="full_width"
-          :list="words"
+          v-model="words"
           @select="openTask"
         />
       </div>
@@ -47,7 +52,7 @@
         <template #default="{ text, weight }">
           <div
             :title="weight"
-            :class="TASK[parameters.model] && 'cursor-pointer'"
+            :class="TASK[parameters.model] && 'cursor-pointer link'"
             @click="() => openTask(text)"
           >
             {{ text }}
@@ -70,6 +75,7 @@ import VueWordCloud from 'vuewordcloud'
 import PanelSettings from './components/PanelSettings.vue'
 import VBtn from '@/components/ui/VBtn/index.vue'
 import TableWords from './components/TableWords.vue'
+import PanelLinks from './components/PanelLinks.vue'
 
 defineOptions({
   name: 'ProjectVocabulary'
@@ -160,5 +166,9 @@ watch(
 .settings-panel {
   width: 400px;
   max-width: 400px;
+}
+
+.link {
+  color: var(--color-primary);
 }
 </style>
